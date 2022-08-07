@@ -1,7 +1,9 @@
 This is "V2" incarnation of the Open Austin website.
 
 V0 - Jekyll site
+
 V1 - WordPress site
+
 V2 - This site!
 
 ---
