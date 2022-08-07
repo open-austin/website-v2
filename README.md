@@ -1,3 +1,11 @@
+This is "V2" incarnation of the Open Austin website.
+
+V0 - Jekyll site
+V1 - WordPress site
+V2 - This site!
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
