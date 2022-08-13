@@ -1,6 +1,6 @@
 import { default as projectData } from "../data/project_data";
 import { Box, Badge, Image, Flex, Link, Text } from "@chakra-ui/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 type Projects = Array<{
   title: string;
@@ -29,45 +29,37 @@ interface Props {
 
 const ProjectCards = ({ currentCategory, currentStatus }: Props) => {
   const [projects, setProjects] = useState<Projects>([]);
-  const isMounted = useRef(false);
 
   useEffect(() => {
-    if (!isMounted.current) {
+    // Handles clearing multiselectors
+    if (currentCategory.size === 0 && currentStatus.size === 0) {
       setProjects(projectData);
-      isMounted.current = true;
     }
-  }, []);
-
-  useEffect(() => {
-    if (isMounted.current) {
-      // Handles multiselectors
-      if (currentCategory.size > 0 || currentStatus.size > 0) {
-        const searchedProjects = projectData.filter((p) => {
-          let categories = new Set([...p.categories]);
-          let superSet = new Set([...categories, ...currentCategory]);
-          //   Selecting only for categories
-          if (currentCategory.size > 0 && currentStatus.size === 0) {
-            if (superSet.size < categories.size + currentCategory.size) {
-              return p;
-            }
-          }
-          //   Selecting only for statuses
-          else if (currentStatus.size > 0 && currentCategory.size === 0) {
-            if (currentStatus.has(p?.status)) return p;
-          }
-          //   Selecting for both categories and statuses
-          else if (currentCategory.size > 0 && currentStatus.size > 0) {
-            if (superSet.size < categories.size + currentCategory.size) {
-              if (currentStatus.has(p?.status)) return p;
-            }
-          }
-        });
-        setProjects(searchedProjects);
-      }
-      // Handles clearing multiselectors
-      else {
-        setProjects(projectData);
-      }
+    // Handles multiselectors
+    else {
+      const searchedProjects = projectData.filter((p) => {
+        let categories = new Set([...p.categories]);
+        let superSet = new Set([...categories, ...currentCategory]);
+        // Handles category search without statuses
+        if (
+          currentStatus.size === 0 &&
+          superSet.size < categories.size + currentCategory.size
+        ) {
+          return p;
+        }
+        // Handles status search without categories
+        else if (currentCategory.size === 0 && currentStatus.has(p?.status)) {
+          return p;
+        }
+        // Handles both status and category search
+        else if (
+          superSet.size < categories.size + currentCategory.size &&
+          currentStatus.has(p?.status)
+        ) {
+          return p;
+        }
+      });
+      setProjects(searchedProjects);
     }
   }, [currentCategory, currentStatus]);
 
