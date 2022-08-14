@@ -1,5 +1,5 @@
-import ProjectCards from "../../components/ProjectCards";
-import SearchBar from "../../components/SearchBar";
+import ProjectCards from "../components/ProjectCards";
+import SearchBar from "../components/SearchBar";
 import { useState } from "react";
 
 const Portfolio = () => {
