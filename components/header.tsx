@@ -21,6 +21,8 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons'
+import DonateButton from './DonateButton'
+import DarkModeSwitch from './DarkModeSwitch'
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure()
@@ -72,20 +74,8 @@ export default function WithSubnavigation() {
           direction={'row'}
           spacing={6}
         >
-          <Button
-            as={'a'}
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'brand.700'}
-            href={'#'}
-            _hover={{
-              bg: 'pink.300',
-            }}
-          >
-            Donate
-          </Button>
+          <DarkModeSwitch />
+          <DonateButton />
         </Stack>
       </Flex>
 
@@ -278,45 +268,49 @@ interface NavItem {
 
 const NAV_ITEMS: ReadonlyArray<NavItem> = [
   {
-    label: 'Inspiration',
+    label: 'Projects',
     children: [
       {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Portfolio',
+        subLabel: 'Current and completed projects',
+        href: 'portfolio',
+      },
+      {
+        label: 'How to get involved',
+        subLabel: 'Learn about how we work and finding the right project.',
         href: '#',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Project Handbook',
+        subLabel: 'Our guide to collaborating on successful projects.',
+        href: '#',
+      },
+      {
+        label: 'Submit a project idea',
         href: '#',
       },
     ],
   },
   {
-    label: 'Find Work',
+    label: 'Join',
     children: [
       {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
+        label: 'Join Slack',
         href: '#',
       },
       {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
+        label: 'Onboarding',
+        subLabel: 'Learn about how we work.',
         href: '#',
       },
     ],
   },
   {
-    label: 'Learn Design',
-    href: '#',
-  },
-  {
-    label: 'About Us',
+    label: 'About',
     children: [
       {
-        label: 'Team',
-        subLabel: 'Our board of directors and community members.',
+        label: 'Meet the Team',
+        subLabel: 'Learn about our board of directors and community members.',
         href: '#',
       },
       {
@@ -333,7 +327,7 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
       },
       {
         label: 'Code of Conduct',
-        href: '#',
+        href: 'coc',
       },
     ],
   },
