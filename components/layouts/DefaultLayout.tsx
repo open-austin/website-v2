@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { ReactElement } from 'react'
-import Footer from './Footer'
-import Header from './header'
+import Footer from '../Footer'
+import Header from '../header'
 
 export const DefaultLayout = ({
   children,
