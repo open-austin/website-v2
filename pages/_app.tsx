@@ -5,7 +5,7 @@ import type { AppProps } from 'next/app'
 
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
 import { theme } from '../lib/theme'
-import { DefaultLayout } from '../components/layouts/DefaultLayout'
+import { DefaultLayout } from '../components/layouts/defaultLayout'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
