@@ -148,8 +148,9 @@ const About = () => {
                 <ListItem>Aaron Renaud – At-large Member</ListItem>
                 <ListItem>
                   <Link href="https://github.com/newswim" isExternal>
-                    Dan Minshew – At-large Member
-                  </Link>
+                    Dan Minshew
+                  </Link>{' '}
+                  – At-large Member
                 </ListItem>
               </UnorderedList>
               <Text fontSize={'xl'} mb={2} mt={2}>
