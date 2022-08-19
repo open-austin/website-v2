@@ -13,7 +13,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <Container maxW="container.md" className="coc-container">
+    <Container maxW="container.md">
       <Stack spacing={4} direction="column">
         <Center>
           <Heading as="h1" size={"2xl"} mt={6} justifyContent="center">
