@@ -22,7 +22,7 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons'
 import DonateButton from './donateButton'
-// import DarkModeSwitch from "./DarkModeSwitch";
+import DarkModeSwitch from './darkModeSwitch'
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure()
@@ -74,7 +74,7 @@ export default function WithSubnavigation() {
           direction={'row'}
           spacing={6}
         >
-          {/* <DarkModeSwitch /> */}
+          <DarkModeSwitch />
           <DonateButton />
         </Stack>
       </Flex>
