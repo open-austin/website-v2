@@ -1,11 +1,11 @@
 // Setup for Chakra and Next environments
 
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
+import '../styles/globals.css'
+import type { AppProps } from 'next/app'
 
-import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
-import { theme } from "../lib/theme";
-import { DefaultLayout } from "../components/DefaultLayout";
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
+import { theme } from '../lib/theme'
+import { DefaultLayout } from '../components/layouts/DefaultLayout'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </DefaultLayout>
     </ChakraProvider>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp
