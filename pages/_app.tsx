@@ -5,15 +5,22 @@ import type { AppProps } from 'next/app'
 
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
 import { theme } from '../lib/theme'
-import { DefaultLayout } from '../components/layouts/defaultLayout'
+import Header from '../components/header'
+import Head from 'next/head'
+import Footer from '../components/footer'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <DefaultLayout>
-        <Component {...pageProps} />
-      </DefaultLayout>
+      <Head>
+        <title>Open Austin</title>
+        <meta name="description" content="Open Austin -- FILL ME IN" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Header />
+      <Component {...pageProps} />
+      <Footer />
     </ChakraProvider>
   )
 }
