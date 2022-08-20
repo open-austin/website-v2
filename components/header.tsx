@@ -21,6 +21,8 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons'
+import DonateButton from './donateButton'
+import DarkModeSwitch from './darkModeSwitch'
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure()
@@ -72,20 +74,8 @@ export default function WithSubnavigation() {
           direction={'row'}
           spacing={6}
         >
-          <Button
-            as={'a'}
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'brand.700'}
-            href={'#'}
-            _hover={{
-              bg: 'pink.300',
-            }}
-          >
-            Donate
-          </Button>
+          <DarkModeSwitch />
+          <DonateButton />
         </Stack>
       </Flex>
 
@@ -103,7 +93,7 @@ const DesktopNav = () => {
 
   return (
     <Stack direction={'row'} spacing={8}>
-      {NAV_ITEMS.map(navItem => (
+      {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
@@ -132,7 +122,7 @@ const DesktopNav = () => {
                 minW={'sm'}
               >
                 <Stack>
-                  {navItem.children.map(child => (
+                  {navItem.children.map((child) => (
                     <DesktopSubNav key={child.label} {...child} />
                   ))}
                 </Stack>
@@ -189,7 +179,7 @@ const MobileNav = () => {
       p={4}
       display={{ md: 'none' }}
     >
-      {NAV_ITEMS.map(navItem => (
+      {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
     </Stack>
@@ -238,7 +228,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           align={'start'}
         >
           {children &&
-            children.map(child => (
+            children.map((child) => (
               <Link key={child.label} py={2} href={child.href}>
                 {child.label}
               </Link>
@@ -278,46 +268,50 @@ interface NavItem {
 
 const NAV_ITEMS: ReadonlyArray<NavItem> = [
   {
-    label: 'Inspiration',
+    label: 'Projects',
     children: [
       {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
+        label: 'Portfolio',
+        subLabel: 'Current and completed projects',
+        href: '/portfolio',
+      },
+      {
+        label: 'How to get involved',
+        subLabel: 'Learn about how we work and finding the right project.',
         href: '#',
       },
       {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
+        label: 'Project Handbook',
+        subLabel: 'Our guide to collaborating on successful projects.',
+        href: '#',
+      },
+      {
+        label: 'Submit a project idea',
+        href: '/collaborate-with-us',
+      },
+    ],
+  },
+  {
+    label: 'Join',
+    children: [
+      {
+        label: 'Join Slack',
+        href: '#',
+      },
+      {
+        label: 'Onboarding',
+        subLabel: 'Learn about how we work.',
         href: '#',
       },
     ],
   },
   {
-    label: 'Find Work',
+    label: 'About',
     children: [
       {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
-      },
-      {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'Learn Design',
-    href: '#',
-  },
-  {
-    label: 'About Us',
-    children: [
-      {
-        label: 'Team',
-        subLabel: 'Our board of directors and community members.',
-        href: '#',
+        label: 'Meet the Team',
+        subLabel: 'Learn about our board of directors and community members.',
+        href: '/about',
       },
       {
         label: 'Mission Statement',
@@ -333,7 +327,7 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
       },
       {
         label: 'Code of Conduct',
-        href: '#',
+        href: '/code-of-conduct',
       },
     ],
   },

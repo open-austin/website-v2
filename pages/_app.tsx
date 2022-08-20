@@ -1,25 +1,26 @@
+// Setup for Chakra and Next environments
+
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 
-import { extendTheme } from '@chakra-ui/react'
-import { ChakraProvider } from '@chakra-ui/react'
-
-// Theme
-
-const colors = {
-  brand: {
-    900: '#1a365d',
-    800: '#153e75',
-    700: '#2a69ac',
-  },
-}
-
-const theme = extendTheme({ colors })
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
+import { theme } from '../lib/theme'
+import Header from '../components/header'
+import Head from 'next/head'
+import Footer from '../components/footer'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <Head>
+        <title>Open Austin</title>
+        <meta name="description" content="Open Austin -- FILL ME IN" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Header />
       <Component {...pageProps} />
+      <Footer />
     </ChakraProvider>
   )
 }
