@@ -1,67 +1,71 @@
-import { default as projectData } from "../data/project_data";
-import { Box, Badge, Image, Flex, Link, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { Box, Badge, Image, Flex, Link, Text } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
+
+import projectData from '../data/project_data'
 
 type Projects = Array<{
-  title: string;
-  description: string;
-  access_at?: string | null;
-  project_at?: string | undefined | null;
-  type: string;
-  status: string;
-  categories: Array<string>;
-  contact: string | Array<string>;
-  cfa_stage?: string;
-  date: string;
-  thumb?: string | null;
-  stack?: Array<string>;
-  published?: boolean;
-  screenshot?: string;
-  featured?: boolean;
-  archived?: boolean;
-  skipSize: number;
-}>;
+  title: string
+  description: string
+  access_at?: string | null
+  project_at?: string | undefined | null
+  type: string
+  status: string
+  categories: Array<string>
+  contact: string | Array<string>
+  cfa_stage?: string
+  date: string
+  thumb?: string | null
+  stack?: Array<string>
+  published?: boolean
+  screenshot?: string
+  featured?: boolean
+  archived?: boolean
+  skipSize: number
+}>
 
 interface Props {
-  currentCategory: Set<string>;
-  currentStatus: Set<string>;
+  currentCategory: Set<string>
+  currentStatus: Set<string>
 }
 
 const ProjectCards = ({ currentCategory, currentStatus }: Props) => {
-  const [projects, setProjects] = useState<Projects>([]);
+  const [projects, setProjects] = useState<Projects>([])
 
   useEffect(() => {
     // Handles clearing multiselectors
     if (currentCategory.size === 0 && currentStatus.size === 0) {
-      setProjects(projectData);
+      setProjects(projectData)
     }
+
     // Handles multiselectors
     else {
       const searchedProjects = projectData.filter((p) => {
-        let categories = new Set([...p.categories]);
-        let superSet = new Set([...categories, ...currentCategory]);
+        let categories = new Set([...p.categories])
+        let superSet = new Set([...categories, ...currentCategory])
+
         // Handles category search without statuses
         if (
           currentStatus.size === 0 &&
           superSet.size < categories.size + currentCategory.size
         ) {
-          return p;
+          return p
         }
         // Handles status search without categories
         else if (currentCategory.size === 0 && currentStatus.has(p?.status)) {
-          return p;
+          return p
         }
         // Handles both status and category search
         else if (
           superSet.size < categories.size + currentCategory.size &&
           currentStatus.has(p?.status)
         ) {
-          return p;
+          return p
         }
-      });
-      setProjects(searchedProjects);
+      })
+
+      setProjects(searchedProjects)
     }
-  }, [currentCategory, currentStatus]);
+  }, [currentCategory, currentStatus])
 
   return (
     <Flex
@@ -83,7 +87,7 @@ const ProjectCards = ({ currentCategory, currentStatus }: Props) => {
         >
           <Image
             src={`/assets/images/projects/screenshots/${data.screenshot}`}
-            fallbackSrc={"/assets/logo/OpenAustin_Symbol_FullColor.jpg"}
+            fallbackSrc={'/assets/logo/OpenAustin_Symbol_FullColor.jpg'}
             alt=""
             objectFit="cover"
           />
@@ -131,23 +135,23 @@ const ProjectCards = ({ currentCategory, currentStatus }: Props) => {
             </Flex>
             {data.stack && (
               <Box>
-                Technologies:{" "}
-                {data.stack?.map((tech, i) => {
-                  if (i === data.stack.length - 1) {
-                    return tech;
+                Technologies:{' '}
+                {data.stack.map((tech, i) => {
+                  if (data.stack && i === data.stack.length - 1) {
+                    return tech
                   } else {
-                    return `${tech}, `;
+                    return `${tech}, `
                   }
                 })}
               </Box>
             )}
             <Box>
-              Categories:{" "}
-              {data.categories?.map((category, i) => {
+              Categories:{' '}
+              {data.categories.map((category, i) => {
                 if (i === data.categories.length - 1) {
-                  return category;
+                  return category
                 } else {
-                  return `${category}, `;
+                  return `${category}, `
                 }
               })}
             </Box>
@@ -155,7 +159,7 @@ const ProjectCards = ({ currentCategory, currentStatus }: Props) => {
         </Box>
       ))}
     </Flex>
-  );
-};
+  )
+}
 
-export default ProjectCards;
+export default ProjectCards

@@ -1,12 +1,11 @@
-import ProjectCards from "../components/ProjectCards";
-import SearchBar from "../components/SearchBar";
-import { useState } from "react";
+import ProjectCards from '../components/ProjectCards'
+import SearchBar from '../components/SearchBar'
+import { useState } from 'react'
+import { Container } from '@chakra-ui/react'
 
 const Portfolio = () => {
-  const [currentCategory, setCurrentCategory] = useState<Set<string>>(
-    new Set()
-  );
-  const [currentStatus, setCurrentStatus] = useState<Set<string>>(new Set());
+  const [currentCategory, setCurrentCategory] = useState<Set<string>>(new Set())
+  const [currentStatus, setCurrentStatus] = useState<Set<string>>(new Set())
 
   return (
     <>
@@ -19,7 +18,7 @@ const Portfolio = () => {
         currentStatus={currentStatus}
       />
     </>
-  );
-};
+  )
+}
 
-export default Portfolio;
+export default Portfolio
