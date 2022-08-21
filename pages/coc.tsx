@@ -9,21 +9,21 @@ import {
   Stack,
   Text,
   UnorderedList,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react'
 
 export default function CodeOfConduct() {
   return (
     <Container maxW="container.md" className="coc-container">
-      <Stack spacing={4} direction="column">
+      <Stack>
         <Center>
-          <Heading as="h1" size={"2xl"} mt={6} justifyContent="center">
+          <Heading as="h1" variant="title">
             Codes of Conduct
           </Heading>
         </Center>
-        <Heading size={"xl"} pt={8}>
+        <Heading as="h2" variant="header">
           General code of conduct
         </Heading>
-        <Text fontSize={"xl"}>
+        <Text fontSize={'xl'}>
           Open Austin is committed to broad community participation, and making
           our events enjoyable and rewarding for everybody who participates. We
           provide this Code of Conduct in the interest of facilitating a
@@ -127,7 +127,7 @@ export default function CodeOfConduct() {
         <Text>
           If you are being harassed, notice that someone else is being harassed,
           or have any other concerns, please contact a member of Open Austin
-          leadership immediately.&nbsp; You may email{" "}
+          leadership immediately.&nbsp; You may email{' '}
           <a href="mailto:info@open-austin.org">info@open-austin.org</a>, or
           submit the anonymous form at the bottom of this page.
         </Text>
@@ -168,7 +168,7 @@ export default function CodeOfConduct() {
             </Link>
             .
           </Text>
-          <Text fontSize={"lg"} pb={4}>
+          <Text fontSize={'lg'} pb={4}>
             Deep thanks to:
           </Text>
           <UnorderedList>
@@ -193,5 +193,5 @@ export default function CodeOfConduct() {
         </Box>
       </Stack>
     </Container>
-  );
+  )
 }
