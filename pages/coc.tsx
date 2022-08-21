@@ -16,13 +16,9 @@ export default function CodeOfConduct() {
     <Container maxW="container.md" className="coc-container">
       <Stack>
         <Center>
-          <Heading as="h1" variant="title">
-            Codes of Conduct
-          </Heading>
+          <Heading variant="title">Code of Conduct</Heading>
         </Center>
-        <Heading as="h2" variant="header">
-          General code of conduct
-        </Heading>
+        <Heading variant="section">General code of conduct</Heading>
         <Text fontSize={'xl'}>
           Open Austin is committed to broad community participation, and making
           our events enjoyable and rewarding for everybody who participates. We
@@ -83,7 +79,7 @@ export default function CodeOfConduct() {
           Event organizers reserve the right to take action, up to and including
           expulsion, in response to violations of these policies.
         </Text>
-        <Heading pt={8}>Anti-harassment policy</Heading>
+        <Heading variant="section">Anti-harassment policy</Heading>
         <Text>
           All Open Austin events and their staff, presenters, and participants
           are held to an anti-harassment policy, included below.
@@ -143,7 +139,9 @@ export default function CodeOfConduct() {
           We value your attendance and hope that by communicating these
           expectations widely we can all enjoy a harassment-free environment.
         </Text>
-        <Heading pt={12}>Report an issue</Heading>
+        <Heading variant="section" pt={12}>
+          Report an issue
+        </Heading>
         <iframe
           className="lazyloaded"
           loading="lazy"
@@ -156,7 +154,7 @@ export default function CodeOfConduct() {
           Loading…
         </iframe>
         <Box pb={8} mb={8}>
-          <Heading pb={2}>Credits</Heading>
+          <Heading variant="credits">Credits</Heading>
           <Text pb={4}>
             This code of conduct and anti-harassment policy are based on&nbsp;
             <Link href="https://github.com/codeforamerica/codeofconduct">

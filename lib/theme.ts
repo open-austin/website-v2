@@ -84,21 +84,25 @@ const components = {
   },
   Stack: {
     baseStyle: {
-      spacing: "4",
+      spacing: 4,
       direction: "column"
     }
   },
   Heading: {
     variants: {
       title: {
-        size: '4xl',
+        as: 'h1',
+        fontSize: fontSizes['6xl'],
         mt: 6,
         justifyContent:'center'
       },
-      header: {
-        as: 'h2',
-        size:'xs',
-        pt:'8'
+      section: {
+        fontSize:fontSizes['3xl'],
+        pt:8
+      },
+      credits: {
+        fontSize:fontSizes['3xl'],
+        pb: 2
       }
     }
   }
