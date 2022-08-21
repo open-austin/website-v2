@@ -94,19 +94,29 @@ const components = {
         as: 'h1',
         fontSize: fontSizes['6xl'],
         mt: 6,
-        justifyContent:'center'
+        justifyContent: 'center'
       },
       section: {
-        fontSize:fontSizes['3xl'],
+        fontSize: fontSizes['3xl'],
         pt:8
       },
       credits: {
-        fontSize:fontSizes['3xl'],
+        fontSize: fontSizes['3xl'],
         pb: 2
       }
     }
-  }
+  },
+  Text: {
+    baseStyle: {
+      fontSize: fontSizes['xl']
+    }
+  },
+}
 
+const textStyles = {
+  "list": {
+    pl: 12
+  }
 }
 
 /**
@@ -118,8 +128,8 @@ const components = {
  */
 export const theme = extendTheme({
   config,
-  colors,
   components,
+  textStyles
   // textStyles: {
   //   link: {
   //     color: '#2a69ac',
