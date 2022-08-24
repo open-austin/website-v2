@@ -45,9 +45,9 @@ export default function CodeOfConduct() {
           </ListItem>
           <ListItem>Strive to listen as much as they speak.</ListItem>
           <ListItem>
-            Strive to build toOrderedLists that are open and free technology for
-            public use. Support efforts to prioritize activities that aim to
-            foster public use, not private gain.
+            Strive to build tools that are open and free technology for public
+            use. Support efforts to prioritize activities that aim to foster
+            public use, not private gain.
           </ListItem>
           <ListItem>
             Support efforts to prioritize access for and input from those who
