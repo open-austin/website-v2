@@ -5,11 +5,9 @@ import {
   Box,
   Heading,
   Text,
-  Button,
   Image,
   Icon,
-  IconButton,
-  createIcon,
+  Link,
   IconProps,
   useColorModeValue,
 } from '@chakra-ui/react'
@@ -44,7 +42,11 @@ const MissionStatement = () => {
           </Text>
 
           <Text as={'span'} color={'gray.500'}>
-            We are affiliated with Code for America’s Brigade Network.
+            We are affiliated with{' '}
+            <Link href="https://brigade.codeforamerica.org/" isExternal>
+              Code for America’s Brigade Network.
+            </Link>
+            .
           </Text>
         </Stack>
         <Flex
