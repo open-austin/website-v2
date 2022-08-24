@@ -311,7 +311,7 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
       {
         label: 'Meet the Team',
         subLabel: 'Learn about our board of directors and community members.',
-        href: '/about',
+        href: '/meet-the-team',
       },
       {
         label: 'Mission Statement',
