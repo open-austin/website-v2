@@ -58,7 +58,7 @@ const Hero = () => {
               rounded={'full'}
               color={'white'}
               _hover={{ bg: 'blue.500' }}
-              name="/about"
+              name="about"
               onClick={clickHandler}
             >
               About
