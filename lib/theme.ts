@@ -12,6 +12,7 @@
  */
 
 import {
+  ComponentStyleConfig,
   extendTheme,
   type ThemeConfig,
   // type Theme, // Uncomment to see the Theme API
@@ -28,17 +29,52 @@ const config: ThemeConfig = {
 
 const colors = {
   brand: {
-    primary: '#EA6036',
-    900: '#1a365d',
-    800: '#153e75',
-    700: '#2a69ac',
+    orange: '#EA6036',
+    orangeDark: '#C83E2F',
+    orangeLight: '#F2884B',
+    gray: '#5D5D5D',
+    blue: '#0082DE'
   },
+  greys: {
+    darkGray: '#2D2D2D',
+    medGray: '#AEAEAE',
+    lightGray: '#D8D8D8',
+    white: '#FFFFFF'
+  }
+}
+
+const fontSizes = {
+  xs: "0.75rem",
+  sm: "0.875rem",
+  md: "1rem",
+  lg: "1.125rem",
+  xl: "1.25rem",
+  "2xl": "1.5rem",
+  "3xl": "1.875rem",
+  "4xl": "2.25rem",
+  "5xl": "3rem",
+  "6xl": "3.75rem",
+  "7xl": "4.5rem",
+  "8xl": "6rem",
+  "9xl": "8rem",
+}
+
+const fontWeights = {
+  hairline: 100,
+  thin: 200,
+  light: 300,
+  normal: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extrabold: 800,
+  black: 900,
 }
 
 const components = {
   Link: {
     baseStyle: {
-      color: colors.brand['700'],
+      color: colors.brand['orangeDark'],
     },
   },
   SocialButton: {
@@ -46,6 +82,41 @@ const components = {
       color: '#e77131',
     },
   },
+  Stack: {
+    baseStyle: {
+      spacing: 4,
+      direction: "column"
+    }
+  },
+  Heading: {
+    variants: {
+      title: {
+        as: 'h1',
+        fontSize: fontSizes['6xl'],
+        mt: 6,
+        justifyContent: 'center'
+      },
+      section: {
+        fontSize: fontSizes['3xl'],
+        pt:8
+      },
+      credits: {
+        fontSize: fontSizes['3xl'],
+        pb: 2
+      }
+    }
+  },
+  Text: {
+    baseStyle: {
+      fontSize: fontSizes['xl']
+    }
+  },
+}
+
+const textStyles = {
+  "list": {
+    pl: 12
+  }
 }
 
 /**
@@ -57,8 +128,8 @@ const components = {
  */
 export const theme = extendTheme({
   config,
-  colors,
   components,
+  textStyles
   // textStyles: {
   //   link: {
   //     color: '#2a69ac',

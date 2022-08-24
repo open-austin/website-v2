@@ -4,86 +4,80 @@ import {
   Container,
   Heading,
   Link,
-  ListItem,
   OrderedList,
   Stack,
   Text,
   UnorderedList,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react'
+import ListItem from '../components/listItem'
 
 export default function CodeOfConduct() {
   return (
     <Container maxW="container.md" className="coc-container">
-      <Stack spacing={4} direction="column">
+      <Stack>
         <Center>
-          <Heading as="h1" size={"2xl"} mt={6} justifyContent="center">
-            Codes of Conduct
-          </Heading>
+          <Heading variant="title">Code of Conduct</Heading>
         </Center>
-        <Heading size={"xl"} pt={8}>
-          General code of conduct
-        </Heading>
-        <Text fontSize={"xl"}>
+        <Heading variant="section">General code of conduct</Heading>
+        <Text>
           Open Austin is committed to broad community participation, and making
           our events enjoyable and rewarding for everybody who participates. We
           provide this Code of Conduct in the interest of facilitating a
           positive, nurturing experience for all.
         </Text>
         <Text>We expect participants at our events and activities to:</Text>
-        <Box pl={12}>
-          <OrderedList>
-            <ListItem>
-              Keep a safe and respectful environment for all other participants.
-            </ListItem>
-            <ListItem>
-              Act to ensure other participants are free to fully express their
-              identities.
-            </ListItem>
-            <ListItem>
-              Recognize that participants have different backgrounds and levels
-              of experience. Everybody should be welcome, questions encouraged,
-              and mentoring opportunities sought.
-            </ListItem>
-            <ListItem>
-              Bring positive efforts and skills to bear, and prefer language
-              such as “yes/and” to “no/but.”
-            </ListItem>
-            <ListItem>Strive to listen as much as they speak.</ListItem>
-            <ListItem>
-              Strive to build toOrderedLists that are open and free technology
-              for public use. Support efforts to prioritize activities that aim
-              to foster public use, not private gain.
-            </ListItem>
-            <ListItem>
-              Support efforts to prioritize access for and input from those who
-              are traditionally excluded from the civic process.
-            </ListItem>
-            <ListItem>
-              Work to ensure that the community is well-represented in the
-              planning, design, and implementation of civic tech. This includes
-              encouraging participation from women, minorities, and
-              traditionally marginalized groups.
-            </ListItem>
-            <ListItem>
-              Actively involve community groups and those with subject matter
-              expertise in the decision-making process.
-            </ListItem>
-            <ListItem>
-              Ensure that the relationships and conversations between community
-              members, the local government staff and community partners remain
-              respectful, participatory, and productive.
-            </ListItem>
-            <ListItem>
-              Provide an environment where people are free from discrimination
-              or harassment.
-            </ListItem>
-          </OrderedList>
-        </Box>
+        <OrderedList textStyle="list">
+          <ListItem>
+            Keep a safe and respectful environment for all other participants.
+          </ListItem>
+          <ListItem>
+            Act to ensure other participants are free to fully express their
+            identities.
+          </ListItem>
+          <ListItem>
+            Recognize that participants have different backgrounds and levels of
+            experience. Everybody should be welcome, questions encouraged, and
+            mentoring opportunities sought.
+          </ListItem>
+          <ListItem>
+            Bring positive efforts and skills to bear, and prefer language such
+            as “yes/and” to “no/but.”
+          </ListItem>
+          <ListItem>Strive to listen as much as they speak.</ListItem>
+          <ListItem>
+            Strive to build tools that are open and free technology for public
+            use. Support efforts to prioritize activities that aim to foster
+            public use, not private gain.
+          </ListItem>
+          <ListItem>
+            Support efforts to prioritize access for and input from those who
+            are traditionally excluded from the civic process.
+          </ListItem>
+          <ListItem>
+            Work to ensure that the community is well-represented in the
+            planning, design, and implementation of civic tech. This includes
+            encouraging participation from women, minorities, and traditionally
+            marginalized groups.
+          </ListItem>
+          <ListItem>
+            Actively involve community groups and those with subject matter
+            expertise in the decision-making process.
+          </ListItem>
+          <ListItem>
+            Ensure that the relationships and conversations between community
+            members, the local government staff and community partners remain
+            respectful, participatory, and productive.
+          </ListItem>
+          <ListItem>
+            Provide an environment where people are free from discrimination or
+            harassment.
+          </ListItem>
+        </OrderedList>
         <Text>
           Event organizers reserve the right to take action, up to and including
           expulsion, in response to violations of these policies.
         </Text>
-        <Heading pt={8}>Anti-harassment policy</Heading>
+        <Heading variant="section">Anti-harassment policy</Heading>
         <Text>
           All Open Austin events and their staff, presenters, and participants
           are held to an anti-harassment policy, included below.
@@ -93,9 +87,9 @@ export default function CodeOfConduct() {
           will only lend our name and fund groups that offer an anti-harassment
           policy to their attendees. For information on how to offer an
           anti-harassment policy to your group, see&nbsp;
-          <a href="https://docs.google.com/a/codeforamerica.org/document/d/1Zg2FDt7awgfCmdcbzMwKHMb1A7KDOhs_z7ibCb3TLLQ/edit">
+          <Link href="https://docs.google.com/Link/codeforamerica.org/document/d/1Zg2FDt7awgfCmdcbzMwKHMb1A7KDOhs_z7ibCb3TLLQ/edit">
             this guide
-          </a>
+          </Link>
           .
         </Text>
         <Text>
@@ -127,9 +121,9 @@ export default function CodeOfConduct() {
         <Text>
           If you are being harassed, notice that someone else is being harassed,
           or have any other concerns, please contact a member of Open Austin
-          leadership immediately.&nbsp; You may email{" "}
-          <a href="mailto:info@open-austin.org">info@open-austin.org</a>, or
-          submit the anonymous form at the bottom of this page.
+          leadership immediately.&nbsp; You may email{' '}
+          <Link href="mailto:info@open-austin.org">info@open-austin.org</Link>,
+          or submit the anonymous form at the bottom of this page.
         </Text>
         <Text>
           Our leadership and event staff will help participants contact venue
@@ -143,7 +137,9 @@ export default function CodeOfConduct() {
           We value your attendance and hope that by communicating these
           expectations widely we can all enjoy a harassment-free environment.
         </Text>
-        <Heading pt={12}>Report an issue</Heading>
+        <Heading variant="section" pt={12}>
+          Report an issue
+        </Heading>
         <iframe
           className="lazyloaded"
           loading="lazy"
@@ -156,7 +152,7 @@ export default function CodeOfConduct() {
           Loading…
         </iframe>
         <Box pb={8} mb={8}>
-          <Heading pb={2}>Credits</Heading>
+          <Heading variant="credits">Credits</Heading>
           <Text pb={4}>
             This code of conduct and anti-harassment policy are based on&nbsp;
             <Link href="https://github.com/codeforamerica/codeofconduct">
@@ -168,10 +164,10 @@ export default function CodeOfConduct() {
             </Link>
             .
           </Text>
-          <Text fontSize={"lg"} pb={4}>
+          <Text fontSize={'lg'} pb={4}>
             Deep thanks to:
           </Text>
-          <UnorderedList>
+          <UnorderedList textStyle="list">
             <ListItem>
               The Ohio LinuxFest anti-harassment policy, written by Esther
               Filderman and Beth Lynn Eicher
@@ -193,5 +189,5 @@ export default function CodeOfConduct() {
         </Box>
       </Stack>
     </Container>
-  );
+  )
 }
