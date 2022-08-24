@@ -23,30 +23,6 @@ const About = () => {
         <Box pb={8} mb={8}>
           <Stack>
             <Heading as="h2" size="md">
-              What is Open Austin?
-            </Heading>
-            <Text fontSize={'xl'}>
-              We believe that 21st-century government should work for the
-              people, by the people.
-            </Text>
-            <Text fontSize={'xl'}>
-              Open Austin is a volunteer civic technology community consisting
-              of developers, designers, data nerds, policy wonks, resident
-              activists, and countless others. We use technology creatively to
-              address local civic and social challenges, and improve all our
-              neighbors’ quality of life.
-            </Text>
-            <Text fontSize={'xl'}>
-              We are affiliated with{' '}
-              <Link href="https://brigade.codeforamerica.org/" isExternal>
-                Code for America’s Brigade Network.
-              </Link>
-            </Text>
-          </Stack>
-        </Box>
-        <Box pb={8} mb={8}>
-          <Stack>
-            <Heading as="h2" size="md">
               What is Civic Technology?
             </Heading>
             <Text fontSize={'xl'}>
