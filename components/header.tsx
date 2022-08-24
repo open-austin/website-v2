@@ -315,7 +315,7 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
       },
       {
         label: 'Mission Statement',
-        href: '#',
+        href: '/mission-statement',
       },
       {
         label: 'Wins',
