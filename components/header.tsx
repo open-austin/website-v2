@@ -278,7 +278,7 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
       {
         label: 'How to get involved',
         subLabel: 'Learn about how we work and finding the right project.',
-        href: '#',
+        href: '/how-to-get-involved',
       },
       {
         label: 'Project Handbook',
@@ -315,7 +315,7 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
       },
       {
         label: 'Mission Statement',
-        href: '#',
+        href: '/mission-statement',
       },
       {
         label: 'Wins',
