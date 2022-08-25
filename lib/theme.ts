@@ -91,7 +91,6 @@ const components = {
   Heading: {
     variants: {
       title: {
-        as: 'h1',
         fontSize: fontSizes['6xl'],
         mt: 6,
         justifyContent: 'center'
@@ -116,6 +115,10 @@ const components = {
 const textStyles = {
   "list": {
     pl: 12
+  },
+  "credits-box": {
+    pb: 8,
+    mb: 8
   }
 }
 
@@ -130,16 +133,4 @@ export const theme = extendTheme({
   config,
   components,
   textStyles
-  // textStyles: {
-  //   link: {
-  //     color: '#2a69ac',
-  //   },
-  // h1: {
-  //   // you can also use responsive styles
-  //   fontSize: ['48px', '72px'],
-  //   fontWeight: 'bold',
-  //   lineHeight: '110%',
-  //   letterSpacing: '-2%',
-  // },
-  // },
 })

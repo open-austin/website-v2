@@ -1,4 +1,8 @@
-import { ListItem as ChakraListItem, Text } from '@chakra-ui/react'
+import {
+  ChakraComponent,
+  ListItem as ChakraListItem,
+  Text,
+} from '@chakra-ui/react'
 import { ReactElement } from 'react'
 
 export type ListItemProps = {
