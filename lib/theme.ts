@@ -119,6 +119,9 @@ const textStyles = {
   "credits-box": {
     pb: 8,
     mb: 8
+  },
+  "container-med": {
+    maxW: "container.md"
   }
 }
 
