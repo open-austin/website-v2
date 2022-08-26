@@ -2,24 +2,24 @@ import {
   Stack,
   Heading,
   UnorderedList,
-  ListItem,
   Box,
   Text,
   Container,
   Center,
 } from '@chakra-ui/react'
 import { Link } from '../components/link'
+import ListItem from '../components/listItem'
 
 const MeetTheTeam = () => {
   return (
     <Container>
       <Stack>
         <Center>
-          <Heading as="h1" size="4xl">
+          <Heading as="h1" variant="title">
             Open Austin Leadership
           </Heading>
         </Center>
-        <Text fontSize={'xl'}>
+        <Text>
           Here are our{' '}
           <Link
             href="https://docs.google.com/document/d/1hRG_yf0XWz4b-PwQ265R0TaIXtuuQ516N-kkBKDg1k8/edit#heading=h.gucmfp1zup8l"
@@ -42,10 +42,8 @@ const MeetTheTeam = () => {
           .
         </Text>
         <Box pb={8} mb={8}>
-          <Text fontSize={'xl'} mb={2}>
-            Our board consists of:
-          </Text>
-          <UnorderedList fontSize={'xl'}>
+          <Text mb={2}>Our board consists of:</Text>
+          <UnorderedList textStyle={'list'}>
             <ListItem>
               <Link href="http://lianilychee.github.io/" isExternal>
                 Liani Lye
@@ -75,10 +73,10 @@ const MeetTheTeam = () => {
               – At-large Member
             </ListItem>
           </UnorderedList>
-          <Text fontSize={'xl'} mb={2} mt={2}>
+          <Text mb={2} mt={2}>
             Our advisory council consists of:
           </Text>
-          <UnorderedList fontSize={'xl'}>
+          <UnorderedList textStyle={'list'}>
             <ListItem>Mateo Clarke</ListItem>
           </UnorderedList>
         </Box>

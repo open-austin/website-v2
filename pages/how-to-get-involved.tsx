@@ -4,10 +4,10 @@ const GetInvolved = () => {
   return (
     <Container>
       <Stack>
-        <Heading as="h2" size="md">
+        <Heading as="h1" variant="title">
           How We Work
         </Heading>
-        <Text fontSize={'xl'}>
+        <Text>
           We host{' '}
           <Link href="https://www.meetup.com/Open-Austin/" isExternal>
             Community Action Nights (CANs) on the second and fourth Wednesday of
