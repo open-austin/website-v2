@@ -122,6 +122,9 @@ const textStyles = {
   },
   "container-med": {
     maxW: "container.md"
+  },
+  "container-wide": {
+    maxW: "7xl"
   }
 }
 
