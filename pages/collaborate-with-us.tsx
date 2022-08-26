@@ -15,7 +15,7 @@ import ListItem from '../components/listItem'
 
 const Collaborate = () => {
   return (
-    <Container maxW="container.md">
+    <Container textStyle="container-med">
       <Stack>
         <Center>
           <Heading as="h1" variant="title">
@@ -109,7 +109,6 @@ const Collaborate = () => {
         <iframe
           className="lazyloaded"
           loading="lazy"
-          width={800}
           height={1100}
           data-src="https://docs.google.com/forms/d/e/1FAIpQLScvbAd9T3nrqmjQjkohaO8Hq9MCP7Z_L8oNnGT1_MpfTwbbvw/viewform?embedded=true&amp;usp=embed_facebook"
           src="https://docs.google.com/forms/d/e/1FAIpQLScvbAd9T3nrqmjQjkohaO8Hq9MCP7Z_L8oNnGT1_MpfTwbbvw/viewform?embedded=true&amp;usp=embed_facebook"
