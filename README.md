@@ -1,8 +1,11 @@
 This is "V2" incarnation of the Open Austin website.
+V0.1 - [PHP site](https://web.archive.org/web/20110812081758/http://www.open-austin.org/) (2011)
 
-V0 - Jekyll site
+V0.2 - [First WordPress site](https://web.archive.org/web/20130621045858/http://www.open-austin.org/) (2013)
 
-V1 - WordPress site
+V0.3 - [Jekyll site](https://github.com/open-austin/open-austin.github.io) (2016)
+
+V1 - [Current WordPress site](https://openaustin.wpmudev.host/)
 
 V2 - This site!
 
