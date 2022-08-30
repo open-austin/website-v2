@@ -71,29 +71,15 @@ export default function LargeWithNewsletter() {
             </Box>
             <Text fontSize={'sm'}>© 2022 Open Austin. All rights reserved</Text>
             <Stack direction={'row'} spacing={6}>
-              <SocialButton
-                label={'Twitter'}
-                href={'https://twitter.com/openaustin'}
-              >
-                <FaTwitter />
-              </SocialButton>
-              <SocialButton
-                label={'YouTube'}
-                href={
-                  'https://www.youtube.com/channel/UCSDcLeHsq8k-WLaJaRQHh4w'
-                }
-              >
-                <FaYoutube />
-              </SocialButton>
-              <SocialButton label={'Instagram'} href={'#'}>
-                <FaInstagram />
-              </SocialButton>
-              <SocialButton
-                label={'LinkedIn'}
-                href={'https://www.linkedin.com/company/open-austin/about/'}
-              >
-                <FaLinkedin />
-              </SocialButton>
+              {SOCIAL_ITEMS.map((link) => (
+                <SocialButton
+                  label={link.label}
+                  href={link.href}
+                  key={link.label}
+                >
+                  {link.icon}
+                </SocialButton>
+              ))}
             </Stack>
           </Stack>
           <Stack align={'flex-start'}>
@@ -144,6 +130,7 @@ interface FooterItems {
   href: String
   label: String
   key?: String
+  icon?: ReactNode
 }
 
 const FOOTER_ITEMS_COMPANY: ReadonlyArray<FooterItems> = [
@@ -160,4 +147,27 @@ const FOOTER_ITEMS_SUPPORT: ReadonlyArray<FooterItems> = [
   { href: '#', label: 'Legal' },
   { href: '#', label: 'Privacy Policy' },
   { href: '#', label: 'Status' },
+]
+
+const SOCIAL_ITEMS: ReadonlyArray<FooterItems> = [
+  {
+    label: 'Twitter',
+    href: 'https://twitter.com/openaustin',
+    icon: <FaTwitter />,
+  },
+  {
+    label: 'Youtube',
+    href: 'https://www.youtube.com/channel/UCSDcLeHsq8k-WLaJaRQHh4w',
+    icon: <FaYoutube />,
+  },
+  {
+    label: 'Instagram',
+    href: '#',
+    icon: <FaInstagram />,
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/open-austin/about/',
+    icon: <FaLinkedin />,
+  },
 ]
