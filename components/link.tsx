@@ -9,7 +9,7 @@ import { ReactNode } from 'react'
 export type LinkProps = {
   href: string
   children: ReactNode | string
-  isExternal: boolean | null
+  isExternal?: boolean
 }
 
 export const Link = ({ href, children }: LinkProps) => (
