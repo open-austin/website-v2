@@ -15,7 +15,7 @@ import ListItem from '../components/listItem'
 
 const Collaborate = () => {
   return (
-    <Container textStyle="container-med">
+    <Container layerStyle="container-med">
       <Stack>
         <Center>
           <Heading as="h1" variant="title">
@@ -116,7 +116,7 @@ const Collaborate = () => {
         >
           Loading…
         </iframe>
-        <Box textStyle={'credits-box'}>
+        <Box layerStyle={'credits-box'}>
           <Heading variant="credits">Credits</Heading>
           <Text>
             This information is based on&nbsp;

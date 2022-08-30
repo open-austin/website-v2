@@ -1,4 +1,5 @@
-import { Button, useColorMode } from '@chakra-ui/react'
+import { useColorMode } from '@chakra-ui/react'
+import { Button } from './button'
 
 export default function DarkModeSwitch() {
   const { colorMode, toggleColorMode } = useColorMode()
