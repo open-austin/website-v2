@@ -1,19 +1,14 @@
 import React from 'react'
-import {
-  Stack,
-  Flex,
-  Button,
-  Text,
-  VStack,
-  useBreakpointValue,
-} from '@chakra-ui/react'
+import { Stack, Flex, Text, VStack, useBreakpointValue } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
+import { Button } from './button'
 
 const Hero = () => {
   const router = useRouter()
 
-  const clickHandler = (e) => {
+  const clickHandler = (e: any) => {
     e.preventDefault()
+    console.log('here')
     const path = e.target.name
     router.push(`/${path}`)
   }
@@ -53,24 +48,10 @@ const Hero = () => {
             activists. All are welcome!
           </Text>
           <Stack direction={'row'} align={'flex-end'}>
-            <Button
-              bg={'blue.400'}
-              rounded={'full'}
-              color={'white'}
-              _hover={{ bg: 'blue.500' }}
-              name="about"
-              onClick={clickHandler}
-            >
+            <Button name="about" onClick={clickHandler}>
               About
             </Button>
-            <Button
-              bg={'whiteAlpha.300'}
-              rounded={'full'}
-              color={'white'}
-              _hover={{ bg: 'whiteAlpha.500' }}
-              name="portfolio"
-              onClick={clickHandler}
-            >
+            <Button name="portfolio" onClick={clickHandler}>
               Projects
             </Button>
           </Stack>

@@ -122,11 +122,13 @@ const components = {
       fontSize: fontSizes['xl']
     },
     variants: {
+      // footer link header
       'flh': {
         fontWeight:'500', 
         fontSize:'lg', 
         mb:2,
       },
+      // footer list link
       'fll': {
         fontSize: fontSizes['md']
       }

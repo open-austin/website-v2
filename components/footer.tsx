@@ -26,10 +26,10 @@ const SocialButton = ({
   href: string
 }) => {
   return (
-    <Button as={'a'} href={href}>
+    <Link href={href}>
       <VisuallyHidden>{label}</VisuallyHidden>
       {children}
-    </Button>
+    </Link>
   )
 }
 
@@ -42,7 +42,7 @@ const ListLink = ({
   href,
 }: {
   children: ReactNode
-  href: String
+  href: string
 }) => {
   return (
     <Link href={href}>
@@ -75,7 +75,7 @@ export default function LargeWithNewsletter() {
                 <SocialButton
                   label={link.label}
                   href={link.href}
-                  key={link.label}
+                  key={link.key}
                 >
                   {link.icon}
                 </SocialButton>
@@ -85,7 +85,7 @@ export default function LargeWithNewsletter() {
           <Stack align={'flex-start'}>
             <ListHeader>Company</ListHeader>
             {FOOTER_ITEMS_COMPANY.map((link) => (
-              <ListLink href={link.href} key={link.href}>
+              <ListLink href={link.href} key={link.key}>
                 {link.label}
               </ListLink>
             ))}
@@ -93,7 +93,7 @@ export default function LargeWithNewsletter() {
           <Stack align={'flex-start'}>
             <ListHeader>Support</ListHeader>
             {FOOTER_ITEMS_SUPPORT.map((link) => (
-              <ListLink href={link.href} key={link.href}>
+              <ListLink href={link.href} key={link.key}>
                 {link.label}
               </ListLink>
             ))}
@@ -127,26 +127,26 @@ export default function LargeWithNewsletter() {
 }
 
 interface FooterItems {
-  href: String
-  label: String
-  key?: String
+  href: string
+  label: string
+  key: string
   icon?: ReactNode
 }
 
 const FOOTER_ITEMS_COMPANY: ReadonlyArray<FooterItems> = [
-  { href: '#', label: 'About' },
-  { href: '#', label: 'Blog' },
-  { href: '#', label: 'Contact us' },
-  { href: '#', label: 'Pricing' },
-  { href: '#', label: 'Testimonials' },
+  { href: '#', label: 'About', key: 'About' },
+  { href: '#', label: 'Blog', key: 'Blog' },
+  { href: '#', label: 'Contact us', key: 'Contact-Us' },
+  { href: '#', label: 'Pricing', key: 'Pricing' },
+  { href: '#', label: 'Testimonials', key: 'Testimonials' },
 ]
 
 const FOOTER_ITEMS_SUPPORT: ReadonlyArray<FooterItems> = [
-  { href: '#', label: 'Help' },
-  { href: '#', label: 'Terms of Service' },
-  { href: '#', label: 'Legal' },
-  { href: '#', label: 'Privacy Policy' },
-  { href: '#', label: 'Status' },
+  { href: '#', label: 'Help', key: 'Help' },
+  { href: '#', label: 'Terms of Service', key: 'Terms-of-Service' },
+  { href: '#', label: 'Legal', key: 'Legal' },
+  { href: '#', label: 'Privacy Policy', key: 'Privacy-Policy' },
+  { href: '#', label: 'Status', key: 'Status' },
 ]
 
 const SOCIAL_ITEMS: ReadonlyArray<FooterItems> = [
@@ -154,20 +154,24 @@ const SOCIAL_ITEMS: ReadonlyArray<FooterItems> = [
     label: 'Twitter',
     href: 'https://twitter.com/openaustin',
     icon: <FaTwitter />,
+    key: 'twitter',
   },
   {
     label: 'Youtube',
     href: 'https://www.youtube.com/channel/UCSDcLeHsq8k-WLaJaRQHh4w',
     icon: <FaYoutube />,
+    key: 'youtube',
   },
   {
     label: 'Instagram',
     href: '#',
     icon: <FaInstagram />,
+    key: 'instagram',
   },
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/company/open-austin/about/',
     icon: <FaLinkedin />,
+    key: 'linkedin',
   },
 ]
