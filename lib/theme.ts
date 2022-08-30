@@ -98,7 +98,7 @@ const components = {
     baseStyle: {
       spacing: 4,
       direction: "column",
-    }
+    },
   },
   Heading: {
     variants: {
@@ -120,6 +120,16 @@ const components = {
   Text: {
     baseStyle: {
       fontSize: fontSizes['xl']
+    },
+    variants: {
+      'flh': {
+        fontWeight:'500', 
+        fontSize:'lg', 
+        mb:2,
+      },
+      'fll': {
+        fontSize: fontSizes['md']
+      }
     }
   }
 }
@@ -141,7 +151,6 @@ const layerStyles = {
   "ns": {
     spacing: 4
   },
-
 }
 
 /**
