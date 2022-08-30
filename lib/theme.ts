@@ -12,6 +12,7 @@
  */
 
 import {
+  useColorModeValue,
   ComponentStyleConfig,
   extendTheme,
   type ThemeConfig,
@@ -74,18 +75,29 @@ const fontWeights = {
 const components = {
   Link: {
     baseStyle: {
-      color: colors.brand['orangeDark'],
+      color: colors.brand['orange'],
+    },
+  },
+  Button: {
+    baseStyle: {
+      fontSize: fontSizes['sm'],
+      fontWeight: 600,
+      color: 'white',
     },
   },
   SocialButton: {
-    baseStyle: {
-      color: '#e77131',
-    },
+    w:8,
+    h:8,
+    rounded:'full',  
+    cursor:'crosshair',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   Stack: {
     baseStyle: {
       spacing: 4,
-      direction: "column"
+      direction: "column",
     }
   },
   Heading: {
@@ -109,10 +121,10 @@ const components = {
     baseStyle: {
       fontSize: fontSizes['xl']
     }
-  },
+  }
 }
 
-const textStyles = {
+const layerStyles = {
   "list": {
     pl: 12
   },
@@ -125,7 +137,11 @@ const textStyles = {
   },
   "container-wide": {
     maxW: "7xl"
-  }
+  },
+  "ns": {
+    spacing: 4
+  },
+
 }
 
 /**
@@ -138,5 +154,5 @@ const textStyles = {
 export const theme = extendTheme({
   config,
   components,
-  textStyles
+  layerStyles,
 })

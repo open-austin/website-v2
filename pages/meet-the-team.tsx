@@ -43,7 +43,7 @@ const MeetTheTeam = () => {
         </Text>
         <Box pb={8} mb={8}>
           <Text mb={2}>Our board consists of:</Text>
-          <UnorderedList textStyle={'list'}>
+          <UnorderedList layerStyle={'list'}>
             <ListItem>
               <Link href="http://lianilychee.github.io/" isExternal>
                 Liani Lye
@@ -76,7 +76,7 @@ const MeetTheTeam = () => {
           <Text mb={2} mt={2}>
             Our advisory council consists of:
           </Text>
-          <UnorderedList textStyle={'list'}>
+          <UnorderedList layerStyle={'list'}>
             <ListItem>Mateo Clarke</ListItem>
           </UnorderedList>
         </Box>

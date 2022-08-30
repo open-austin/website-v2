@@ -1,6 +1,5 @@
 import {
   Box,
-  chakra,
   Container,
   SimpleGrid,
   Stack,
@@ -14,6 +13,7 @@ import { ReactNode } from 'react'
 import { FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { BiMailSend } from 'react-icons/bi'
 import { Link } from './link'
+import { Button } from './button'
 import Logo from './logo'
 
 const SocialButton = ({
@@ -26,26 +26,10 @@ const SocialButton = ({
   href: string
 }) => {
   return (
-    <chakra.button
-      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-      rounded={'full'}
-      w={8}
-      h={8}
-      cursor={'pointer'}
-      as={'a'}
-      href={href}
-      display={'inline-flex'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      transition={'background 0.3s ease'}
-      _hover={{
-        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-      }}
-      color="#e77131"
-    >
+    <Button as={'a'} href={href}>
       <VisuallyHidden>{label}</VisuallyHidden>
       {children}
-    </chakra.button>
+    </Button>
   )
 }
 
@@ -130,10 +114,10 @@ export default function LargeWithNewsletter() {
                 }}
               />
               <IconButton
-                bg={useColorModeValue('orange.600', 'orange.400')}
+                bg={useColorModeValue('#EA6036', '#F2884B')}
                 color={useColorModeValue('white', 'gray.800')}
                 _hover={{
-                  bg: 'orange.500',
+                  bg: useColorModeValue('#C83E2F', '#FFFFFF'),
                 }}
                 aria-label="Subscribe"
                 icon={<BiMailSend />}

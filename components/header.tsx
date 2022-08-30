@@ -3,7 +3,6 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
   Stack,
   Collapse,
   Icon,
@@ -190,7 +189,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack layerStyle="ns" onClick={children && onToggle}>
       <Flex
         py={2}
         as={Link}
@@ -201,12 +200,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           textDecoration: 'none',
         }}
       >
-        <Text
-          fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}
-        >
-          {label}
-        </Text>
+        <Text>{label}</Text>
         {children && (
           <Icon
             as={ChevronDownIcon}
@@ -245,26 +239,6 @@ interface NavItem {
   children?: Array<NavItem>
   href?: string
 }
-
-// Home
-// Projects
-//   Portfolio
-//   How to get involved
-// Join
-//   Onboarding
-//   Submit a project idea
-//   List of upcoming events
-// Events
-//   List of upcoming events
-//   FAQ
-//   CoC link
-// About
-//   Board & Team
-//   Mission Statement
-//   Wins
-//   Community partners
-//   CoC
-// Donate
 
 const NAV_ITEMS: ReadonlyArray<NavItem> = [
   {

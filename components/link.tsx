@@ -4,11 +4,11 @@
 
 import NextLink from 'next/link'
 import { Link as ChakraLink } from '@chakra-ui/react'
-import { ReactElement } from 'react'
+import { ReactNode } from 'react'
 
 export type LinkProps = {
   href: string
-  children: ReactElement | string
+  children: ReactNode | string
   isExternal: boolean | null
 }
 

@@ -13,7 +13,7 @@ import ListItem from '../components/listItem'
 
 export default function CodeOfConduct() {
   return (
-    <Container textStyle="container-med">
+    <Container layerStyle="container-med">
       <Stack>
         <Center>
           <Heading variant="title">Code of Conduct</Heading>
@@ -26,7 +26,7 @@ export default function CodeOfConduct() {
           positive, nurturing experience for all.
         </Text>
         <Text>We expect participants at our events and activities to:</Text>
-        <OrderedList textStyle="list">
+        <OrderedList layerStyle="list">
           <ListItem>
             Keep a safe and respectful environment for all other participants.
           </ListItem>
@@ -166,7 +166,7 @@ export default function CodeOfConduct() {
           <Text fontSize={'lg'} pb={4}>
             Deep thanks to:
           </Text>
-          <UnorderedList textStyle="list">
+          <UnorderedList layerStyle="list">
             <ListItem>
               The Ohio LinuxFest anti-harassment policy, written by Esther
               Filderman and Beth Lynn Eicher
