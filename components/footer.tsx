@@ -34,10 +34,20 @@ const SocialButton = ({
 }
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
+  return <Text variant="flh">{children}</Text>
+}
+
+const ListLink = ({
+  children,
+  href,
+}: {
+  children: ReactNode
+  href: String
+}) => {
   return (
-    <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
-      {children}
-    </Text>
+    <Link href={href}>
+      <Text variant="fll">{children}</Text>
+    </Link>
   )
 }
 
@@ -88,19 +98,19 @@ export default function LargeWithNewsletter() {
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Company</ListHeader>
-            <Link href={'#'}>About us</Link>
-            <Link href={'#'}>Blog</Link>
-            <Link href={'#'}>Contact us</Link>
-            <Link href={'#'}>Pricing</Link>
-            <Link href={'#'}>Testimonials</Link>
+            <ListLink href={'#'}>About us</ListLink>
+            <ListLink href={'#'}>Blog</ListLink>
+            <ListLink href={'#'}>Contact us</ListLink>
+            <ListLink href={'#'}>Pricing</ListLink>
+            <ListLink href={'#'}>Testimonials</ListLink>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Support</ListHeader>
-            <Link href={'#'}>Help Center</Link>
-            <Link href={'#'}>Terms of Service</Link>
-            <Link href={'#'}>Legal</Link>
-            <Link href={'#'}>Privacy Policy</Link>
-            <Link href={'#'}>Status</Link>
+            <ListLink href={'#'}>Help Center</ListLink>
+            <ListLink href={'#'}>Terms of Service</ListLink>
+            <ListLink href={'#'}>Legal</ListLink>
+            <ListLink href={'#'}>Privacy Policy</ListLink>
+            <ListLink href={'#'}>Status</ListLink>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Stay up to date</ListHeader>
