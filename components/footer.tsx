@@ -98,19 +98,19 @@ export default function LargeWithNewsletter() {
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Company</ListHeader>
-            <ListLink href={'#'}>About us</ListLink>
-            <ListLink href={'#'}>Blog</ListLink>
-            <ListLink href={'#'}>Contact us</ListLink>
-            <ListLink href={'#'}>Pricing</ListLink>
-            <ListLink href={'#'}>Testimonials</ListLink>
+            {FOOTER_ITEMS_COMPANY.map((link) => (
+              <ListLink href={link.href} key={link.href}>
+                {link.label}
+              </ListLink>
+            ))}
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Support</ListHeader>
-            <ListLink href={'#'}>Help Center</ListLink>
-            <ListLink href={'#'}>Terms of Service</ListLink>
-            <ListLink href={'#'}>Legal</ListLink>
-            <ListLink href={'#'}>Privacy Policy</ListLink>
-            <ListLink href={'#'}>Status</ListLink>
+            {FOOTER_ITEMS_SUPPORT.map((link) => (
+              <ListLink href={link.href} key={link.href}>
+                {link.label}
+              </ListLink>
+            ))}
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Stay up to date</ListHeader>
@@ -139,3 +139,25 @@ export default function LargeWithNewsletter() {
     </Box>
   )
 }
+
+interface FooterItems {
+  href: String
+  label: String
+  key?: String
+}
+
+const FOOTER_ITEMS_COMPANY: ReadonlyArray<FooterItems> = [
+  { href: '#', label: 'About' },
+  { href: '#', label: 'Blog' },
+  { href: '#', label: 'Contact us' },
+  { href: '#', label: 'Pricing' },
+  { href: '#', label: 'Testimonials' },
+]
+
+const FOOTER_ITEMS_SUPPORT: ReadonlyArray<FooterItems> = [
+  { href: '#', label: 'Help' },
+  { href: '#', label: 'Terms of Service' },
+  { href: '#', label: 'Legal' },
+  { href: '#', label: 'Privacy Policy' },
+  { href: '#', label: 'Status' },
+]
