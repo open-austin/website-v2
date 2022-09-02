@@ -12,10 +12,10 @@
  */
 
 import {
-  useColorModeValue,
   ComponentStyleConfig,
   extendTheme,
   type ThemeConfig,
+  StyleFunctionProps,
   // type Theme, // Uncomment to see the Theme API
   // theme as baseTheme,
 } from '@chakra-ui/react'
@@ -34,30 +34,30 @@ const colors = {
     orangeDark: '#C83E2F',
     orangeLight: '#F2884B',
     gray: '#5D5D5D',
-    blue: '#0082DE'
+    blue: '#0082DE',
   },
   greys: {
     darkGray: '#2D2D2D',
     medGray: '#AEAEAE',
     lightGray: '#D8D8D8',
-    white: '#FFFFFF'
-  }
+    white: '#FFFFFF',
+  },
 }
 
 const fontSizes = {
-  xs: "0.75rem",
-  sm: "0.875rem",
-  md: "1rem",
-  lg: "1.125rem",
-  xl: "1.25rem",
-  "2xl": "1.5rem",
-  "3xl": "1.875rem",
-  "4xl": "2.25rem",
-  "5xl": "3rem",
-  "6xl": "3.75rem",
-  "7xl": "4.5rem",
-  "8xl": "6rem",
-  "9xl": "8rem",
+  xs: '0.75rem',
+  sm: '0.875rem',
+  md: '1rem',
+  lg: '1.125rem',
+  xl: '1.25rem',
+  '2xl': '1.5rem',
+  '3xl': '1.875rem',
+  '4xl': '2.25rem',
+  '5xl': '3rem',
+  '6xl': '3.75rem',
+  '7xl': '4.5rem',
+  '8xl': '6rem',
+  '9xl': '8rem',
 }
 
 const fontWeights = {
@@ -84,12 +84,24 @@ const components = {
       fontWeight: 600,
       color: 'white',
     },
+    variants: {
+      primary: (props: StyleFunctionProps) => ({
+        bg:
+          props.colorMode === 'light'
+            ? colors.brand.orange
+            : colors.brand.gray ,
+        _hover: {
+          bg: props.colorMode === 'light' ? colors.brand.orangeLight : colors.brand.orangeDark,
+        },
+        transition: 'background 0.3s ease',
+      }),
+    },
   },
   SocialButton: {
-    w:8,
-    h:8,
-    rounded:'full',  
-    cursor:'crosshair',
+    w: 8,
+    h: 8,
+    rounded: 'full',
+    cursor: 'crosshair',
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -97,7 +109,7 @@ const components = {
   Stack: {
     baseStyle: {
       spacing: 4,
-      direction: "column",
+      direction: 'column',
     },
   },
   Heading: {
@@ -105,53 +117,53 @@ const components = {
       title: {
         fontSize: fontSizes['6xl'],
         mt: 6,
-        justifyContent: 'center'
+        justifyContent: 'center',
       },
       section: {
         fontSize: fontSizes['3xl'],
-        pt:8
+        pt: 8,
       },
       credits: {
         fontSize: fontSizes['3xl'],
-        pb: 2
-      }
-    }
+        pb: 2,
+      },
+    },
   },
   Text: {
     baseStyle: {
-      fontSize: fontSizes['xl']
+      fontSize: fontSizes['xl'],
     },
     variants: {
       // footer link header
-      'flh': {
-        fontWeight:'500', 
-        fontSize:'lg', 
-        mb:2,
+      flh: {
+        fontWeight: '500',
+        fontSize: 'lg',
+        mb: 2,
       },
       // footer list link
-      'fll': {
-        fontSize: fontSizes['md']
-      }
-    }
-  }
+      fll: {
+        fontSize: fontSizes['md'],
+      },
+    },
+  },
 }
 
 const layerStyles = {
-  "list": {
-    pl: 12
+  list: {
+    pl: 12,
   },
-  "credits-box": {
+  'credits-box': {
     pb: 8,
-    mb: 8
+    mb: 8,
   },
-  "container-med": {
-    maxW: "container.md"
+  'container-med': {
+    maxW: 'container.md',
   },
-  "container-wide": {
-    maxW: "7xl"
+  'container-wide': {
+    maxW: '7xl',
   },
-  "ns": {
-    spacing: 4
+  ns: {
+    spacing: 4,
   },
 }
 
