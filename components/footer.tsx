@@ -12,19 +12,19 @@ import {
 import { ReactNode } from 'react'
 import { FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { BiMailSend } from 'react-icons/bi'
-import { Link } from './link'
-import { Button } from './button'
+import { Link, LinkProps } from './link'
 import Logo from './logo'
 
-const SocialButton = ({
-  children,
-  label,
-  href,
-}: {
-  children: ReactNode
+type SocialLink = LinkProps & {
   label: string
-  href: string
-}) => {
+}
+
+type FooterItems = SocialLink & {
+  key: string
+  icon?: ReactNode
+}
+
+const SocialLink = ({ children, label, href }: SocialLink) => {
   return (
     <Link href={href}>
       <VisuallyHidden>{label}</VisuallyHidden>
@@ -37,19 +37,56 @@ const ListHeader = ({ children }: { children: ReactNode }) => {
   return <Text variant="flh">{children}</Text>
 }
 
-const ListLink = ({
-  children,
-  href,
-}: {
-  children: ReactNode
-  href: string
-}) => {
+const ListLink = ({ children, href }: LinkProps) => {
   return (
     <Link href={href}>
       <Text variant="fll">{children}</Text>
     </Link>
   )
 }
+
+const FOOTER_ITEMS_COMPANY: ReadonlyArray<FooterItems> = [
+  { href: '#', label: 'About', key: 'About' },
+  { href: '#', label: 'Blog', key: 'Blog' },
+  { href: '#', label: 'Contact us', key: 'Contact-Us' },
+  { href: '#', label: 'Pricing', key: 'Pricing' },
+  { href: '#', label: 'Testimonials', key: 'Testimonials' },
+]
+
+const FOOTER_ITEMS_SUPPORT: ReadonlyArray<FooterItems> = [
+  { href: '#', label: 'Help', key: 'Help' },
+  { href: '#', label: 'Terms of Service', key: 'Terms-of-Service' },
+  { href: '#', label: 'Legal', key: 'Legal' },
+  { href: '#', label: 'Privacy Policy', key: 'Privacy-Policy' },
+  { href: '#', label: 'Status', key: 'Status' },
+]
+
+const SOCIAL_ITEMS: ReadonlyArray<FooterItems> = [
+  {
+    label: 'Twitter',
+    href: 'https://twitter.com/openaustin',
+    icon: <FaTwitter />,
+    key: 'twitter',
+  },
+  {
+    label: 'Youtube',
+    href: 'https://www.youtube.com/channel/UCSDcLeHsq8k-WLaJaRQHh4w',
+    icon: <FaYoutube />,
+    key: 'youtube',
+  },
+  {
+    label: 'Instagram',
+    href: '#',
+    icon: <FaInstagram />,
+    key: 'instagram',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/open-austin/about/',
+    icon: <FaLinkedin />,
+    key: 'linkedin',
+  },
+]
 
 export default function LargeWithNewsletter() {
   return (
@@ -72,13 +109,9 @@ export default function LargeWithNewsletter() {
             <Text fontSize={'sm'}>© 2022 Open Austin. All rights reserved</Text>
             <Stack direction={'row'} spacing={6}>
               {SOCIAL_ITEMS.map((link) => (
-                <SocialButton
-                  label={link.label}
-                  href={link.href}
-                  key={link.key}
-                >
+                <SocialLink label={link.label} href={link.href} key={link.key}>
                   {link.icon}
-                </SocialButton>
+                </SocialLink>
               ))}
             </Stack>
           </Stack>
@@ -125,53 +158,3 @@ export default function LargeWithNewsletter() {
     </Box>
   )
 }
-
-interface FooterItems {
-  href: string
-  label: string
-  key: string
-  icon?: ReactNode
-}
-
-const FOOTER_ITEMS_COMPANY: ReadonlyArray<FooterItems> = [
-  { href: '#', label: 'About', key: 'About' },
-  { href: '#', label: 'Blog', key: 'Blog' },
-  { href: '#', label: 'Contact us', key: 'Contact-Us' },
-  { href: '#', label: 'Pricing', key: 'Pricing' },
-  { href: '#', label: 'Testimonials', key: 'Testimonials' },
-]
-
-const FOOTER_ITEMS_SUPPORT: ReadonlyArray<FooterItems> = [
-  { href: '#', label: 'Help', key: 'Help' },
-  { href: '#', label: 'Terms of Service', key: 'Terms-of-Service' },
-  { href: '#', label: 'Legal', key: 'Legal' },
-  { href: '#', label: 'Privacy Policy', key: 'Privacy-Policy' },
-  { href: '#', label: 'Status', key: 'Status' },
-]
-
-const SOCIAL_ITEMS: ReadonlyArray<FooterItems> = [
-  {
-    label: 'Twitter',
-    href: 'https://twitter.com/openaustin',
-    icon: <FaTwitter />,
-    key: 'twitter',
-  },
-  {
-    label: 'Youtube',
-    href: 'https://www.youtube.com/channel/UCSDcLeHsq8k-WLaJaRQHh4w',
-    icon: <FaYoutube />,
-    key: 'youtube',
-  },
-  {
-    label: 'Instagram',
-    href: '#',
-    icon: <FaInstagram />,
-    key: 'instagram',
-  },
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/company/open-austin/about/',
-    icon: <FaLinkedin />,
-    key: 'linkedin',
-  },
-]
