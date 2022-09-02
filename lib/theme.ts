@@ -113,6 +113,9 @@ const components = {
     },
   },
   Heading: {
+    baseStyle: {
+      color: colors.brand.orange
+    },
     variants: {
       title: {
         fontSize: fontSizes['6xl'],
