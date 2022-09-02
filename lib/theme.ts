@@ -77,6 +77,15 @@ const components = {
     baseStyle: {
       color: colors.brand['orange'],
     },
+    variants: {
+      socialLink: {
+        w: 8,
+        h: 8,
+        rounded: 'full',
+        cursor: 'pointer',
+        display: 'inline-flex',
+      }
+    }
   },
   Button: {
     baseStyle: {
@@ -86,25 +95,16 @@ const components = {
     },
     variants: {
       primary: (props: StyleFunctionProps) => ({
-        bg:
-          props.colorMode === 'light'
+          bg: props.colorMode === 'light'
             ? colors.brand.orange
-            : colors.brand.gray ,
+            : colors.brand.gray
+            ,
         _hover: {
           bg: props.colorMode === 'light' ? colors.brand.orangeLight : colors.brand.orangeDark,
         },
         transition: 'background 0.3s ease',
-      }),
+      })
     },
-  },
-  SocialButton: {
-    w: 8,
-    h: 8,
-    rounded: 'full',
-    cursor: 'crosshair',
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   Stack: {
     baseStyle: {

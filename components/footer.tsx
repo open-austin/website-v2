@@ -26,7 +26,7 @@ type FooterItems = SocialLink & {
 
 const SocialLink = ({ children, label, href }: SocialLink) => {
   return (
-    <Link href={href}>
+    <Link href={href} variant="socialLink">
       <VisuallyHidden>{label}</VisuallyHidden>
       {children}
     </Link>
@@ -100,14 +100,16 @@ export default function LargeWithNewsletter() {
           spacing={8}
         >
           <Stack spacing={6}>
-            <Box>
+            <Box alignSelf="center">
               <Logo
                 color={useColorModeValue('gray.700', 'white')}
                 height={'5em'}
               />
             </Box>
-            <Text fontSize={'sm'}>© 2022 Open Austin. All rights reserved</Text>
-            <Stack direction={'row'} spacing={6}>
+            <Text fontSize={'sm'} alignSelf="center">
+              © 2022 Open Austin. All rights reserved
+            </Text>
+            <Stack direction={'row'} spacing={6} justifyContent="center">
               {SOCIAL_ITEMS.map((link) => (
                 <SocialLink label={link.label} href={link.href} key={link.key}>
                   {link.icon}

@@ -10,10 +10,11 @@ export type LinkProps = {
   href: string
   children?: ReactNode | string
   isExternal?: boolean
+  variant?: string
 }
 
-export const Link = ({ href, children }: LinkProps) => (
+export const Link = ({ href, children, variant }: LinkProps) => (
   <NextLink href={href} passHref>
-    <ChakraLink>{children}</ChakraLink>
+    <ChakraLink variant={variant}>{children}</ChakraLink>
   </NextLink>
 )
