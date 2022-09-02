@@ -233,7 +233,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   )
 }
 
-interface NavItem {
+type NavItem = {
   label: string
   subLabel?: string
   children?: Array<NavItem>
