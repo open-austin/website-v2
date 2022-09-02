@@ -22,6 +22,7 @@ import {
 } from '@chakra-ui/icons'
 import DonateButton from './donateButton'
 import DarkModeSwitch from './darkModeSwitch'
+import Logo from './logo'
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure()
@@ -54,14 +55,10 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}
-          >
-            Logo
-          </Text>
-
+          <Logo
+            color={useColorModeValue('gray.700', 'white')}
+            height={'2.5rem'}
+          />
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
           </Flex>
