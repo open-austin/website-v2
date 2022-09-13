@@ -96,10 +96,11 @@ export default function LargeWithNewsletter() {
     >
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid
-          templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
+          templateColumns={{ base: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
+          templateRows={{ base: '1fr 1fr 1fr', md: '1fr' }}
           spacing={8}
         >
-          <Stack spacing={6}>
+          <Stack spacing={6} gridColumn={{ base: '1 / -1', md: '1' }}>
             <Box alignSelf="center">
               <Logo
                 color={useColorModeValue('gray.700', 'white')}
@@ -117,7 +118,7 @@ export default function LargeWithNewsletter() {
               ))}
             </Stack>
           </Stack>
-          <Stack align={'flex-start'}>
+          <Stack>
             <ListHeader>Company</ListHeader>
             {FOOTER_ITEMS_COMPANY.map((link) => (
               <ListLink href={link.href} key={link.key}>
@@ -125,7 +126,7 @@ export default function LargeWithNewsletter() {
               </ListLink>
             ))}
           </Stack>
-          <Stack align={'flex-start'}>
+          <Stack>
             <ListHeader>Support</ListHeader>
             {FOOTER_ITEMS_SUPPORT.map((link) => (
               <ListLink href={link.href} key={link.key}>
@@ -133,7 +134,10 @@ export default function LargeWithNewsletter() {
               </ListLink>
             ))}
           </Stack>
-          <Stack align={'flex-start'}>
+          <Stack
+            align={{ base: 'center', lg: 'flex-start' }}
+            gridColumn={{ base: '1 / -1', md: '4 / -1' }}
+          >
             <ListHeader>Stay up to date</ListHeader>
             <Stack direction={'row'}>
               <Input
