@@ -22,17 +22,10 @@ const MissionStatement = () => {
         direction={{ base: 'column', md: 'row' }}
       >
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
-          <Heading
-            lineHeight={1.1}
-            fontWeight={600}
-            fontSize={{ base: '3xl', sm: '4xl', lg: '6xl' }}
-          >
-            <Text as={'span'} position={'relative'} color={'red.400'}>
-              Mission Statement
-            </Text>
-            <br />
+          <Heading lineHeight={1.1} fontWeight={600} variant="title">
+            Mission Statement
           </Heading>
-          <Text color={'gray.500'}>
+          <Text>
             We believe that 21st-century government should work for the people,
             by the people. Open Austin is a volunteer civic technology community
             consisting of developers, designers, data nerds, policy wonks,
@@ -41,10 +34,10 @@ const MissionStatement = () => {
             all our neighbors’ quality of life.
           </Text>
 
-          <Text as={'span'} color={'gray.500'}>
+          <Text as={'span'}>
             We are affiliated with{' '}
             <Link href="https://brigade.codeforamerica.org/" isExternal>
-              Code for America’s Brigade Network.
+              Code for America’s Brigade Network
             </Link>
             .
           </Text>
