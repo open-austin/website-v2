@@ -12,7 +12,6 @@ import Footer from '../components/footer'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <Head>
         <title>Open Austin</title>
         <meta name="description" content="Open Austin -- FILL ME IN" />

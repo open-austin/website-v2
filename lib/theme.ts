@@ -32,16 +32,10 @@ const colors = {
   brand: {
     orange: '#EA6036',
     orangeDark: '#C83E2F',
-    orangeLight: '#F2884B',
     gray: '#5D5D5D',
     blue: '#0082DE',
-  },
-  greys: {
-    darkGray: '#2D2D2D',
-    medGray: '#AEAEAE',
-    lightGray: '#D8D8D8',
     white: '#FFFFFF',
-  },
+  }
 }
 
 const fontSizes = {
@@ -97,10 +91,10 @@ const components = {
       primary: (props: StyleFunctionProps) => ({
           bg: props.colorMode === 'light'
             ? colors.brand.orange
-            : colors.brand.gray
+            : colors.brand.orange
             ,
         _hover: {
-          bg: props.colorMode === 'light' ? colors.brand.orangeLight : colors.brand.orangeDark,
+          bg: props.colorMode === 'light' ? colors.brand.orange : colors.brand.orangeDark,
         },
         transition: 'background 0.3s ease',
       })
