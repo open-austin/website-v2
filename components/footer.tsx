@@ -53,6 +53,11 @@ const FOOTER_ITEMS_COMPANY: ReadonlyArray<FooterItems> = [
 ]
 
 const FOOTER_ITEMS_SUPPORT: ReadonlyArray<FooterItems> = [
+  {
+    href: 'https://opencollective.com/open-austin',
+    label: 'Donate',
+    key: 'donate',
+  },
   { href: '#', label: 'Help', key: 'Help' },
   { href: '#', label: 'Legal', key: 'Legal' },
   { href: '#', label: 'Privacy Policy', key: 'Privacy-Policy' },
