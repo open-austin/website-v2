@@ -1,0 +1,30 @@
+name: GitHub Pages deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
+      - name: Installing my packages
+        run: rm -rf node_modules && yarn install --frozen-lockfile && touch ./out/.nojekyll
+
+      - name: Build my App
+        run: yarn export
+
+      - name: Deploy 🚀
+        uses: actions/deploy-pages@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: out # The folder the action should deploy.
