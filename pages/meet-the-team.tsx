@@ -12,10 +12,10 @@ import ListItem from '../components/listItem'
 
 const MeetTheTeam = () => {
   return (
-    <Container>
-      <Stack>
+    <Container maxW="container.lg" minH={'calc(100vh - 335px)'}>
+      <Stack py={{ base: 10, md: 14 }}>
         <Center>
-          <Heading as="h1" variant="title">
+          <Heading as="h1" variant="title" mb={8} justifyContent="center">
             Open Austin Leadership
           </Heading>
         </Center>

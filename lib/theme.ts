@@ -28,14 +28,14 @@ const config: ThemeConfig = {
   // disableTransitionOnChange: true,
 }
 
-const colors = {
+export const colors = {
   brand: {
     orange: '#EA6036',
     orangeDark: '#C83E2F',
     gray: '#5D5D5D',
     blue: '#0082DE',
     white: '#FFFFFF',
-  }
+  },
 }
 
 const fontSizes = {
@@ -69,7 +69,7 @@ const fontWeights = {
 const components = {
   Link: {
     baseStyle: {
-      color: colors.brand['orange'],
+      color: colors.brand.orange,
     },
     variants: {
       socialLink: {
@@ -78,26 +78,41 @@ const components = {
         rounded: 'full',
         cursor: 'pointer',
         display: 'inline-flex',
-      }
-    }
+      },
+    },
   },
   Button: {
     baseStyle: {
-      fontSize: fontSizes['sm'],
+      fontSize: fontSizes.sm,
       fontWeight: 600,
       color: 'white',
+      transition: 'background 0.3s ease',
     },
     variants: {
       primary: (props: StyleFunctionProps) => ({
-          bg: props.colorMode === 'light'
+        bg:
+          props.colorMode === 'light'
             ? colors.brand.orange
-            : colors.brand.orange
-            ,
+            : colors.brand.orangeDark,
         _hover: {
-          bg: props.colorMode === 'light' ? colors.brand.orange : colors.brand.orangeDark,
+          bg:
+            props.colorMode === 'light'
+              ? colors.brand.orangeDark
+              : colors.brand.orange,
         },
         transition: 'background 0.3s ease',
-      })
+      }),
+      toggle: (props: StyleFunctionProps) => ({
+        bg:
+          props.colorMode === 'light' ? colors.brand.white : colors.brand.gray,
+        _hover: {
+          bg:
+            props.colorMode === 'light'
+              ? colors.brand.gray
+              : colors.brand.white,
+        },
+        transition: 'background 0.3s ease',
+      }),
     },
   },
   Stack: {
@@ -108,7 +123,7 @@ const components = {
   },
   Heading: {
     baseStyle: {
-      color: colors.brand.orange
+      color: colors.brand.orange,
     },
     variants: {
       title: {

@@ -1,16 +1,14 @@
 import {
-  ChakraComponent,
   ListItem as ChakraListItem,
+  ListItemProps,
   Text,
 } from '@chakra-ui/react'
 import { ReactElement } from 'react'
 
-export type ListItemProps = {
-  children: ReactElement | string
-}
+export type Props = ListItemProps
 
-const ListItem = ({ children }: ListItemProps) => (
-  <ChakraListItem>
+const ListItem = ({ children, ...rest }: Props) => (
+  <ChakraListItem {...rest}>
     <Text>{children}</Text>
   </ChakraListItem>
 )
