@@ -1,12 +1,16 @@
 name: GitHub Pages deploy
 
 on:
-  push:
-    branches:
-      - main
+  [push]
+  # push:
+  #   branches:
+  #     - main
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +28,7 @@ jobs:
         run: yarn export && touch ./out/.nojekyll
 
       - name: Deploy 🚀
-        uses: actions/deploy-pages@v1
+        uses: JamesIves/github-pages-deploy-action@4.4.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
