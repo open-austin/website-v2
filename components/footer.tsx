@@ -1,6 +1,5 @@
 import {
   Box,
-  chakra,
   Container,
   SimpleGrid,
   Stack,
@@ -13,49 +12,83 @@ import {
 import { ReactNode } from 'react'
 import { FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa'
 import { BiMailSend } from 'react-icons/bi'
-import { Link } from './link'
+import { Link, LinkProps } from './link'
 import Logo from './logo'
 
-const SocialButton = ({
-  children,
-  label,
-  href,
-}: {
-  children: ReactNode
+type SocialLink = LinkProps & {
   label: string
-  href: string
-}) => {
+}
+
+type FooterItems = SocialLink & {
+  key: string
+  icon?: ReactNode
+}
+
+const SocialLink = ({ children, label, href }: SocialLink) => {
   return (
-    <chakra.button
-      bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
-      rounded={'full'}
-      w={8}
-      h={8}
-      cursor={'pointer'}
-      as={'a'}
-      href={href}
-      display={'inline-flex'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      transition={'background 0.3s ease'}
-      _hover={{
-        bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-      }}
-      color="#e77131"
-    >
+    <Link href={href} variant="socialLink">
       <VisuallyHidden>{label}</VisuallyHidden>
       {children}
-    </chakra.button>
+    </Link>
   )
 }
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
+  return <Text variant="flh">{children}</Text>
+}
+
+const ListLink = ({ children, href }: LinkProps) => {
   return (
-    <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
-      {children}
-    </Text>
+    <Link href={href}>
+      <Text variant="fll">{children}</Text>
+    </Link>
   )
 }
+
+const FOOTER_ITEMS_COMPANY: ReadonlyArray<FooterItems> = [
+  { href: '#', label: 'About', key: 'About' },
+  { href: '#', label: 'Blog', key: 'Blog' },
+  { href: '#', label: 'Contact us', key: 'Contact-Us' },
+  { href: '#', label: 'Testimonials', key: 'Testimonials' },
+]
+
+const FOOTER_ITEMS_SUPPORT: ReadonlyArray<FooterItems> = [
+  {
+    href: 'https://opencollective.com/open-austin',
+    label: 'Donate',
+    key: 'donate',
+  },
+  { href: '#', label: 'Help', key: 'Help' },
+  { href: '#', label: 'Legal', key: 'Legal' },
+  { href: '#', label: 'Privacy Policy', key: 'Privacy-Policy' },
+]
+
+const SOCIAL_ITEMS: ReadonlyArray<FooterItems> = [
+  {
+    label: 'Twitter',
+    href: 'https://twitter.com/openaustin',
+    icon: <FaTwitter />,
+    key: 'twitter',
+  },
+  {
+    label: 'Youtube',
+    href: 'https://www.youtube.com/channel/UCSDcLeHsq8k-WLaJaRQHh4w',
+    icon: <FaYoutube />,
+    key: 'youtube',
+  },
+  {
+    label: 'Instagram',
+    href: '#',
+    icon: <FaInstagram />,
+    key: 'instagram',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/open-austin/about/',
+    icon: <FaLinkedin />,
+    key: 'linkedin',
+  },
+]
 
 export default function LargeWithNewsletter() {
   return (
@@ -65,60 +98,48 @@ export default function LargeWithNewsletter() {
     >
       <Container as={Stack} maxW={'6xl'} py={10}>
         <SimpleGrid
-          templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
+          templateColumns={{ base: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
+          templateRows={{ base: '1fr 1fr 1fr', md: '1fr' }}
           spacing={8}
         >
-          <Stack spacing={6}>
-            <Box>
+          <Stack spacing={6} gridColumn={{ base: '1 / -1', md: '1' }}>
+            <Box alignSelf="center">
               <Logo
                 color={useColorModeValue('gray.700', 'white')}
                 height={'5em'}
               />
             </Box>
-            <Text fontSize={'sm'}>© 2022 Open Austin. All rights reserved</Text>
-            <Stack direction={'row'} spacing={6}>
-              <SocialButton
-                label={'Twitter'}
-                href={'https://twitter.com/openaustin'}
-              >
-                <FaTwitter />
-              </SocialButton>
-              <SocialButton
-                label={'YouTube'}
-                href={
-                  'https://www.youtube.com/channel/UCSDcLeHsq8k-WLaJaRQHh4w'
-                }
-              >
-                <FaYoutube />
-              </SocialButton>
-              <SocialButton label={'Instagram'} href={'#'}>
-                <FaInstagram />
-              </SocialButton>
-              <SocialButton
-                label={'LinkedIn'}
-                href={'https://www.linkedin.com/company/open-austin/about/'}
-              >
-                <FaLinkedin />
-              </SocialButton>
+            <Text fontSize={'sm'} alignSelf="center">
+              © 2022 Open Austin. All rights reserved
+            </Text>
+            <Stack direction={'row'} spacing={6} justifyContent="center">
+              {SOCIAL_ITEMS.map((link) => (
+                <SocialLink label={link.label} href={link.href} key={link.key}>
+                  {link.icon}
+                </SocialLink>
+              ))}
             </Stack>
           </Stack>
-          <Stack align={'flex-start'}>
+          <Stack>
             <ListHeader>Company</ListHeader>
-            <Link href={'#'}>About us</Link>
-            <Link href={'#'}>Blog</Link>
-            <Link href={'#'}>Contact us</Link>
-            <Link href={'#'}>Pricing</Link>
-            <Link href={'#'}>Testimonials</Link>
+            {FOOTER_ITEMS_COMPANY.map((link) => (
+              <ListLink href={link.href} key={link.key}>
+                {link.label}
+              </ListLink>
+            ))}
           </Stack>
-          <Stack align={'flex-start'}>
+          <Stack>
             <ListHeader>Support</ListHeader>
-            <Link href={'#'}>Help Center</Link>
-            <Link href={'#'}>Terms of Service</Link>
-            <Link href={'#'}>Legal</Link>
-            <Link href={'#'}>Privacy Policy</Link>
-            <Link href={'#'}>Status</Link>
+            {FOOTER_ITEMS_SUPPORT.map((link) => (
+              <ListLink href={link.href} key={link.key}>
+                {link.label}
+              </ListLink>
+            ))}
           </Stack>
-          <Stack align={'flex-start'}>
+          <Stack
+            align={{ base: 'center', lg: 'flex-start' }}
+            gridColumn={{ base: '1 / -1', md: '4 / -1' }}
+          >
             <ListHeader>Stay up to date</ListHeader>
             <Stack direction={'row'}>
               <Input
@@ -130,10 +151,10 @@ export default function LargeWithNewsletter() {
                 }}
               />
               <IconButton
-                bg={useColorModeValue('orange.600', 'orange.400')}
+                bg={useColorModeValue('#EA6036', '#F2884B')}
                 color={useColorModeValue('white', 'gray.800')}
                 _hover={{
-                  bg: 'orange.500',
+                  bg: useColorModeValue('#C83E2F', '#FFFFFF'),
                 }}
                 aria-label="Subscribe"
                 icon={<BiMailSend />}

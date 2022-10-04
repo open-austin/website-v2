@@ -1,10 +1,17 @@
-import { Button, useColorMode } from '@chakra-ui/react'
+import { IconButton, useColorMode } from '@chakra-ui/react'
+import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 export default function DarkModeSwitch() {
   const { colorMode, toggleColorMode } = useColorMode()
+
   return (
-    <Button onClick={toggleColorMode}>
-      Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
-    </Button>
+    <IconButton
+      aria-label="Toggle dark mode"
+      onClick={toggleColorMode}
+      bg="transparent"
+      size="lg"
+      color={colorMode === 'light' ? 'blue.700' : 'yellow.300'}
+      icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+    />
   )
 }

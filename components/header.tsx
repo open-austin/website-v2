@@ -3,17 +3,16 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
   Stack,
+  Link,
   Collapse,
   Icon,
-  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
+  Badge,
 } from '@chakra-ui/react'
 import {
   HamburgerIcon,
@@ -23,6 +22,8 @@ import {
 } from '@chakra-ui/icons'
 import DonateButton from './donateButton'
 import DarkModeSwitch from './darkModeSwitch'
+import Logo from './logo'
+import { Link as NextLink } from './link'
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure()
@@ -55,14 +56,12 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}
-          >
-            Logo
-          </Text>
-
+          <Link href="/">
+            <Logo
+              color={useColorModeValue('gray.700', 'white')}
+              height={'3rem'}
+            />
+          </Link>
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
           </Flex>
@@ -92,20 +91,22 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue('white', 'gray.800')
 
   return (
-    <Stack direction={'row'} spacing={8}>
+    <Stack direction={'row'} spacing={8} align="center">
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
               <Link
-                p={2}
-                href={navItem.href ?? '#'}
-                fontSize={'sm'}
-                fontWeight={500}
-                color={linkColor}
-                _hover={{
-                  textDecoration: 'none',
-                  color: linkHoverColor,
+                href={navItem.href}
+                {...{
+                  p: 2,
+                  fontSize: 'md',
+                  fontWeight: 500,
+                  color: linkColor,
+                  _hover: {
+                    textDecoration: 'none',
+                    color: linkHoverColor,
+                  },
                 }}
               >
                 {navItem.label}
@@ -135,7 +136,7 @@ const DesktopNav = () => {
   )
 }
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, href, subLabel, wip }: NavItem) => {
   return (
     <Link
       href={href}
@@ -153,8 +154,15 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
             fontWeight={500}
           >
             {label}
+            {wip && (
+              <Badge ml="1" colorScheme="green">
+                Coming Soon
+              </Badge>
+            )}
           </Text>
-          <Text fontSize={'sm'}>{subLabel}</Text>
+          <Text fontSize={'sm'} color={'pink.900'}>
+            {subLabel}
+          </Text>
         </Box>
         <Flex
           transition={'all .3s ease'}
@@ -190,23 +198,18 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack layerStyle="ns" onClick={children && onToggle}>
       <Flex
         py={2}
         as={Link}
-        href={href ?? '#'}
+        href={href}
         justify={'space-between'}
         align={'center'}
         _hover={{
           textDecoration: 'none',
         }}
       >
-        <Text
-          fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}
-        >
-          {label}
-        </Text>
+        <Text>{label}</Text>
         {children && (
           <Icon
             as={ChevronDownIcon}
@@ -218,7 +221,11 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         )}
       </Flex>
 
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
+      <Collapse
+        in={isOpen}
+        animateOpacity
+        style={{ marginTop: '0 !important' }}
+      >
         <Stack
           mt={2}
           pl={4}
@@ -229,9 +236,14 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         >
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <NextLink
+                href={child.href}
+                key={child.label}
+                py={2}
+                isExternal={child.external}
+              >
                 {child.label}
-              </Link>
+              </NextLink>
             ))}
         </Stack>
       </Collapse>
@@ -239,32 +251,14 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   )
 }
 
-interface NavItem {
+type NavItem = {
   label: string
   subLabel?: string
   children?: Array<NavItem>
   href?: string
+  external?: boolean
+  wip?: boolean
 }
-
-// Home
-// Projects
-//   Portfolio
-//   How to get involved
-// Join
-//   Onboarding
-//   Submit a project idea
-//   List of upcoming events
-// Events
-//   List of upcoming events
-//   FAQ
-//   CoC link
-// About
-//   Board & Team
-//   Mission Statement
-//   Wins
-//   Community partners
-//   CoC
-// Donate
 
 const NAV_ITEMS: ReadonlyArray<NavItem> = [
   {
@@ -278,12 +272,13 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
       {
         label: 'How to get involved',
         subLabel: 'Learn about how we work and finding the right project.',
-        href: '#',
+        href: '/how-to-get-involved',
       },
       {
         label: 'Project Handbook',
         subLabel: 'Our guide to collaborating on successful projects.',
         href: '#',
+        wip: true,
       },
       {
         label: 'Submit a project idea',
@@ -296,12 +291,14 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
     children: [
       {
         label: 'Join Slack',
-        href: '#',
+        href: 'https://slack.open-austin.org/',
+        external: true,
       },
       {
         label: 'Onboarding',
         subLabel: 'Learn about how we work.',
         href: '#',
+        wip: true,
       },
     ],
   },
@@ -311,19 +308,21 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
       {
         label: 'Meet the Team',
         subLabel: 'Learn about our board of directors and community members.',
-        href: '/about',
+        href: '/meet-the-team',
       },
       {
         label: 'Mission Statement',
-        href: '#',
+        href: '/mission-statement',
       },
       {
         label: 'Wins',
         href: '#',
+        wip: true,
       },
       {
         label: 'Community Partners',
         href: '#',
+        wip: true,
       },
       {
         label: 'Code of Conduct',

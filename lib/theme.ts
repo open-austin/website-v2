@@ -12,8 +12,10 @@
  */
 
 import {
+  ComponentStyleConfig,
   extendTheme,
   type ThemeConfig,
+  StyleFunctionProps,
   // type Theme, // Uncomment to see the Theme API
   // theme as baseTheme,
 } from '@chakra-ui/react'
@@ -26,25 +28,154 @@ const config: ThemeConfig = {
   // disableTransitionOnChange: true,
 }
 
-const colors = {
+export const colors = {
   brand: {
-    primary: '#EA6036',
-    900: '#1a365d',
-    800: '#153e75',
-    700: '#2a69ac',
+    orange: '#EA6036',
+    orangeDark: '#C83E2F',
+    gray: '#5D5D5D',
+    blue: '#0082DE',
+    white: '#FFFFFF',
   },
+}
+
+const fontSizes = {
+  xs: '0.75rem',
+  sm: '0.875rem',
+  md: '1rem',
+  lg: '1.125rem',
+  xl: '1.25rem',
+  '2xl': '1.5rem',
+  '3xl': '1.875rem',
+  '4xl': '2.25rem',
+  '5xl': '3rem',
+  '6xl': '3.75rem',
+  '7xl': '4.5rem',
+  '8xl': '6rem',
+  '9xl': '8rem',
+}
+
+const fontWeights = {
+  hairline: 100,
+  thin: 200,
+  light: 300,
+  normal: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extrabold: 800,
+  black: 900,
 }
 
 const components = {
   Link: {
     baseStyle: {
-      color: colors.brand['700'],
+      color: colors.brand.orange,
+    },
+    variants: {
+      socialLink: {
+        w: 8,
+        h: 8,
+        rounded: 'full',
+        cursor: 'pointer',
+        display: 'inline-flex',
+      },
     },
   },
-  SocialButton: {
+  Button: {
     baseStyle: {
-      color: '#e77131',
+      fontSize: fontSizes.sm,
+      fontWeight: 600,
+      color: 'white',
+      transition: 'background 0.3s ease',
     },
+    variants: {
+      primary: (props: StyleFunctionProps) => ({
+        bg:
+          props.colorMode === 'light'
+            ? colors.brand.orange
+            : colors.brand.orangeDark,
+        _hover: {
+          bg:
+            props.colorMode === 'light'
+              ? colors.brand.orangeDark
+              : colors.brand.orange,
+        },
+        transition: 'background 0.3s ease',
+      }),
+      toggle: (props: StyleFunctionProps) => ({
+        bg:
+          props.colorMode === 'light' ? colors.brand.white : colors.brand.gray,
+        _hover: {
+          bg:
+            props.colorMode === 'light'
+              ? colors.brand.gray
+              : colors.brand.white,
+        },
+        transition: 'background 0.3s ease',
+      }),
+    },
+  },
+  Stack: {
+    baseStyle: {
+      spacing: 4,
+      direction: 'column',
+    },
+  },
+  Heading: {
+    baseStyle: {
+      color: colors.brand.orange,
+    },
+    variants: {
+      title: {
+        fontSize: fontSizes['6xl'],
+        mt: 6,
+        justifyContent: 'center',
+      },
+      section: {
+        fontSize: fontSizes['3xl'],
+        pt: 8,
+      },
+      credits: {
+        fontSize: fontSizes['3xl'],
+        pb: 2,
+      },
+    },
+  },
+  Text: {
+    baseStyle: {
+      fontSize: fontSizes['xl'],
+    },
+    variants: {
+      // footer link header
+      flh: {
+        fontWeight: '500',
+        fontSize: 'lg',
+        mb: 2,
+      },
+      // footer list link
+      fll: {
+        fontSize: fontSizes['md'],
+      },
+    },
+  },
+}
+
+const layerStyles = {
+  list: {
+    pl: 12,
+  },
+  'credits-box': {
+    pb: 8,
+    mb: 8,
+  },
+  'container-med': {
+    maxW: 'container.md',
+  },
+  'container-wide': {
+    maxW: '7xl',
+  },
+  ns: {
+    spacing: 4,
   },
 }
 
@@ -57,18 +188,6 @@ const components = {
  */
 export const theme = extendTheme({
   config,
-  colors,
   components,
-  // textStyles: {
-  //   link: {
-  //     color: '#2a69ac',
-  //   },
-  // h1: {
-  //   // you can also use responsive styles
-  //   fontSize: ['48px', '72px'],
-  //   fontWeight: 'bold',
-  //   lineHeight: '110%',
-  //   letterSpacing: '-2%',
-  // },
-  // },
+  layerStyles,
 })

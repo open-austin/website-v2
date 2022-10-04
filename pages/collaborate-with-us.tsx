@@ -2,32 +2,32 @@ import {
   Box,
   chakra,
   Heading,
-  ListItem,
   Stack,
   Text,
   UnorderedList,
   OrderedList,
-  Link,
   Container,
   Center,
 } from '@chakra-ui/react'
 import React from 'react'
+import { Link } from '../components/link'
+import ListItem from '../components/listItem'
 
 const Collaborate = () => {
   return (
     <Container maxW="container.md">
-      <Stack spacing={4} direction="column">
+      <Stack>
         <Center>
-          <Heading as="h1" size={'2xl'} mt={6} justifyContent="center">
+          <Heading as="h1" variant="title">
             Collaborate With Us
           </Heading>
         </Center>
         <Box>
           <Stack>
-            <Heading as="h2" size="md">
+            <Heading variant="section">
               Identified a problem in the Austin community?
             </Heading>
-            <Text pb={4}>
+            <Text>
               {`We'd love to work with you and make Austin more liveable for
               everyone. You can submit a problem statement to our leadership
               team using the project form linked further on. Before you submit,
@@ -38,10 +38,10 @@ const Collaborate = () => {
         </Box>
         <Box>
           <Stack>
-            <Heading as="h2" size="md">
+            <Heading variant="section">
               What Constitutes an Open Austin Project?
             </Heading>
-            <Text size={'2xl'}>A project must:</Text>
+            <Text>A project must:</Text>
             <UnorderedList>
               <ListItem>
                 <chakra.span fontWeight={'bold'}>
@@ -76,7 +76,7 @@ const Collaborate = () => {
         </Box>
         <Box>
           <Stack>
-            <Heading as="h2" size="md">
+            <Heading variant="section">
               How Open Austin Takes on New Projects
             </Heading>
             <OrderedList>
@@ -109,7 +109,6 @@ const Collaborate = () => {
         <iframe
           className="lazyloaded"
           loading="lazy"
-          width={800}
           height={1100}
           data-src="https://docs.google.com/forms/d/e/1FAIpQLScvbAd9T3nrqmjQjkohaO8Hq9MCP7Z_L8oNnGT1_MpfTwbbvw/viewform?embedded=true&amp;usp=embed_facebook"
           src="https://docs.google.com/forms/d/e/1FAIpQLScvbAd9T3nrqmjQjkohaO8Hq9MCP7Z_L8oNnGT1_MpfTwbbvw/viewform?embedded=true&amp;usp=embed_facebook"
@@ -117,11 +116,11 @@ const Collaborate = () => {
         >
           Loading…
         </iframe>
-        <Box pb={8} mb={8}>
-          <Heading pb={2}>Credits</Heading>
-          <Text pb={4}>
+        <Box layerStyle={'credits-box'}>
+          <Heading variant="credits">Credits</Heading>
+          <Text>
             This information is based on&nbsp;
-            <Link href="https://www.codeforboston.org/projects/">
+            <Link href="https://www.codeforboston.org/projects/" isExternal>
               {"Code for Boston's Project Page"}
             </Link>
             .
