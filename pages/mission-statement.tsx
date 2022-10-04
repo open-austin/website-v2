@@ -14,7 +14,7 @@ import {
 
 const MissionStatement = () => {
   return (
-    <Container maxW={'7xl'}>
+    <Container maxW="container.lg">
       <Stack
         align={'center'}
         spacing={{ base: 8, md: 10 }}

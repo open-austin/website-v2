@@ -49,16 +49,13 @@ const FOOTER_ITEMS_COMPANY: ReadonlyArray<FooterItems> = [
   { href: '#', label: 'About', key: 'About' },
   { href: '#', label: 'Blog', key: 'Blog' },
   { href: '#', label: 'Contact us', key: 'Contact-Us' },
-  { href: '#', label: 'Pricing', key: 'Pricing' },
   { href: '#', label: 'Testimonials', key: 'Testimonials' },
 ]
 
 const FOOTER_ITEMS_SUPPORT: ReadonlyArray<FooterItems> = [
   { href: '#', label: 'Help', key: 'Help' },
-  { href: '#', label: 'Terms of Service', key: 'Terms-of-Service' },
   { href: '#', label: 'Legal', key: 'Legal' },
   { href: '#', label: 'Privacy Policy', key: 'Privacy-Policy' },
-  { href: '#', label: 'Status', key: 'Status' },
 ]
 
 const SOCIAL_ITEMS: ReadonlyArray<FooterItems> = [

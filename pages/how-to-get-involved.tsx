@@ -2,7 +2,7 @@ import { Container, Heading, Link, Stack, Text } from '@chakra-ui/react'
 
 const GetInvolved = () => {
   return (
-    <Container>
+    <Container maxW="80ch" minH={'calc(100vh - 335px)'}>
       <Stack>
         <Heading as="h1" variant="title">
           How We Work

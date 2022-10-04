@@ -13,8 +13,8 @@ import ListItem from '../components/listItem'
 
 export default function CodeOfConduct() {
   return (
-    <Container layerStyle="container-med">
-      <Stack>
+    <Container maxW="80ch">
+      <Stack py={{ base: 20, md: 14 }}>
         <Center>
           <Heading variant="title">Code of Conduct</Heading>
         </Center>

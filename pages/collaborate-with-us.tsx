@@ -15,7 +15,7 @@ import ListItem from '../components/listItem'
 
 const Collaborate = () => {
   return (
-    <Container layerStyle="container-med">
+    <Container maxW="container.md">
       <Stack>
         <Center>
           <Heading as="h1" variant="title">

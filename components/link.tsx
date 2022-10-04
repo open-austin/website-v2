@@ -3,18 +3,15 @@
 // See: https://chakra-ui.com/docs/components/link/usage#usage-with-nextjs
 
 import NextLink from 'next/link'
-import { Link as ChakraLink } from '@chakra-ui/react'
-import { ReactNode } from 'react'
+import {
+  Link as ChakraLink,
+  LinkProps as ChakraLinkProps,
+} from '@chakra-ui/react'
 
-export type LinkProps = {
-  href: string
-  children?: ReactNode | string
-  isExternal?: boolean
-  variant?: string
-}
+export type LinkProps = ChakraLinkProps
 
-export const Link = ({ href, children, variant }: LinkProps) => (
-  <NextLink href={href} passHref>
-    <ChakraLink variant={variant}>{children}</ChakraLink>
+export const Link = ({ href = '/', children, ...rest }: LinkProps) => (
+  <NextLink passHref href={href}>
+    <ChakraLink {...rest}>{children}</ChakraLink>
   </NextLink>
 )

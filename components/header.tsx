@@ -4,15 +4,15 @@ import {
   Text,
   IconButton,
   Stack,
+  Link,
   Collapse,
   Icon,
-  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
+  Badge,
 } from '@chakra-ui/react'
 import {
   HamburgerIcon,
@@ -23,6 +23,7 @@ import {
 import DonateButton from './donateButton'
 import DarkModeSwitch from './darkModeSwitch'
 import Logo from './logo'
+import { Link as NextLink } from './link'
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure()
@@ -55,10 +56,12 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Logo
-            color={useColorModeValue('gray.700', 'white')}
-            height={'2.5rem'}
-          />
+          <Link href="/">
+            <Logo
+              color={useColorModeValue('gray.700', 'white')}
+              height={'3rem'}
+            />
+          </Link>
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
           </Flex>
@@ -94,14 +97,16 @@ const DesktopNav = () => {
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
               <Link
-                p={2}
-                href={navItem.href ?? '#'}
-                fontSize={'sm'}
-                fontWeight={500}
-                color={linkColor}
-                _hover={{
-                  textDecoration: 'none',
-                  color: linkHoverColor,
+                href={navItem.href}
+                {...{
+                  p: 2,
+                  fontSize: 'md',
+                  fontWeight: 500,
+                  color: linkColor,
+                  _hover: {
+                    textDecoration: 'none',
+                    color: linkHoverColor,
+                  },
                 }}
               >
                 {navItem.label}
@@ -131,7 +136,7 @@ const DesktopNav = () => {
   )
 }
 
-const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
+const DesktopSubNav = ({ label, href, subLabel, wip }: NavItem) => {
   return (
     <Link
       href={href}
@@ -149,8 +154,15 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
             fontWeight={500}
           >
             {label}
+            {wip && (
+              <Badge ml="1" colorScheme="green">
+                Coming Soon
+              </Badge>
+            )}
           </Text>
-          <Text fontSize={'sm'}>{subLabel}</Text>
+          <Text fontSize={'sm'} color={'pink.900'}>
+            {subLabel}
+          </Text>
         </Box>
         <Flex
           transition={'all .3s ease'}
@@ -190,7 +202,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
       <Flex
         py={2}
         as={Link}
-        href={href ?? '#'}
+        href={href}
         justify={'space-between'}
         align={'center'}
         _hover={{
@@ -209,7 +221,11 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         )}
       </Flex>
 
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
+      <Collapse
+        in={isOpen}
+        animateOpacity
+        style={{ marginTop: '0 !important' }}
+      >
         <Stack
           mt={2}
           pl={4}
@@ -220,9 +236,14 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         >
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <NextLink
+                href={child.href}
+                key={child.label}
+                py={2}
+                isExternal={child.external}
+              >
                 {child.label}
-              </Link>
+              </NextLink>
             ))}
         </Stack>
       </Collapse>
@@ -235,6 +256,8 @@ type NavItem = {
   subLabel?: string
   children?: Array<NavItem>
   href?: string
+  external?: boolean
+  wip?: boolean
 }
 
 const NAV_ITEMS: ReadonlyArray<NavItem> = [
@@ -255,6 +278,7 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
         label: 'Project Handbook',
         subLabel: 'Our guide to collaborating on successful projects.',
         href: '#',
+        wip: true,
       },
       {
         label: 'Submit a project idea',
@@ -267,12 +291,14 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
     children: [
       {
         label: 'Join Slack',
-        href: '#',
+        href: 'https://slack.open-austin.org/',
+        external: true,
       },
       {
         label: 'Onboarding',
         subLabel: 'Learn about how we work.',
         href: '#',
+        wip: true,
       },
     ],
   },
@@ -291,10 +317,12 @@ const NAV_ITEMS: ReadonlyArray<NavItem> = [
       {
         label: 'Wins',
         href: '#',
+        wip: true,
       },
       {
         label: 'Community Partners',
         href: '#',
+        wip: true,
       },
       {
         label: 'Code of Conduct',
