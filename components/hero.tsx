@@ -6,7 +6,7 @@ import { Link } from './link'
 const Hero = () => (
   <Flex
     w={'full'}
-    h={'100vh'}
+    h={'calc(100vh - 335px)'}
     backgroundImage={`url("/assets/code-across-2015-pano.png")`}
     backgroundSize={'cover'}
     backgroundPosition={'center center'}
