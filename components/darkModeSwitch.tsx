@@ -2,8 +2,8 @@ import { Button, useColorMode, useColorModeValue } from '@chakra-ui/react'
 
 export default function DarkModeSwitch() {
   const { colorMode, toggleColorMode } = useColorMode()
-  const bg = useColorModeValue('gray.700', 'gray.900')
-  const hover = useColorModeValue('gray.800', 'gray.700')
+  const bg = useColorModeValue('gray.500', 'gray.800')
+  const hover = useColorModeValue('gray.600', 'gray.700')
 
   return (
     <Button
